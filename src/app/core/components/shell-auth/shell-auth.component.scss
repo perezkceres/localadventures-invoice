@@ -1,0 +1,142 @@
+.shell-auth-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    mat-sidenav {
+        .sidenav-logo {
+            .sidenav-logo-content {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                box-sizing: border-box;
+                // padding: 0 16px 0 26px;
+                position: relative;
+                height: inherit;
+                margin: 10px 10px 45px 26px;
+
+                .log-wrapper, & > button {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    padding: 0;
+                }
+ 
+                img {
+                    margin-top: 8px;
+                }
+                & > button {
+                    margin-left: 10px;
+                    color: #fff;
+                    width: 40px;
+
+                    .mat-button-wrapper {
+                        width: 40px;
+                    }
+                }
+            }
+        }
+
+        .mat-nav-list {
+            .mat-list-item {
+                padding-top: 8px;
+                padding-bottom: 8px;
+                padding-right: 25px;
+
+                .mat-list-item-content {
+                    font-size: 12pt;
+                }
+                .mat-list-icon {
+                    font-size: 30pt;
+                    width: 40px;
+                    height: 40px;
+                }
+
+                &.item--active {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.shell-auth-is-mobile .shell-auth-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+}
+
+h1.shell-auth-app-name {
+    margin-left: 8px;
+}
+
+.shell-auth-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+}
+
+.shell-auth-is-mobile .shell-auth-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+}
+
+mat-sidenav-container.mat-drawer-opened {
+    .mat-drawer-backdrop {
+        display: none;
+    }
+}
+mat-sidenav {
+
+    width: 16.5em!important;
+    & ~ .mat-drawer-content {
+        margin-left: 16.5em!important;
+    }
+    &.mat-sidenav-fixed {
+        & ~ .mat-drawer-content {
+            margin-left: 4.5em!important;
+        }
+    }
+
+    &.mat-sidenav-short {
+        /* custom animation to grow and shrink width */
+        -webkit-transition: width .3s !important; /* For Safari 3.1 to 6.0 */
+        transition: width .3s !important;
+    
+        visibility: visible!important;
+    
+        transform: none!important;
+        overflow: hidden;
+    
+        .sidenav-logo-content {
+            margin-left: 20px!important;
+    
+            .logo-wrapper {
+                display: none;
+            }
+    
+            button {
+                margin-left: 0!important;
+            }
+        }
+    
+        width: 4.5em!important;
+        & ~ .mat-drawer-content {
+            margin-left: 4.5em!important;
+        }
+        &.mat-sidenav-fixed {
+            & ~ .mat-drawer-content {
+                margin-left: 4.5em!important;
+            }
+        }
+    }
+}
+
+.container-wrapper {
+    padding: 30px 15px;
+}
