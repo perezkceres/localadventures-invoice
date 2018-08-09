@@ -49,7 +49,7 @@ export class LoginComponent extends EditComponent<User> implements OnInit, OnDes
         this.formSubmitAttempt = true;
 
         if (this.form.valid && !this.loading) {
-            this.urlEntityHome = [this.qpReturnUrl || '/invoice'];
+            this.urlEntityHome = [this.qpReturnUrl || '/admin'];
 
             this.loading = true;
             this.auth.login(this.form.value.username, this.form.value.password).subscribe(user => {

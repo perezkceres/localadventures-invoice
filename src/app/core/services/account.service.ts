@@ -34,12 +34,12 @@ export class AccountService implements IAccountService {
     /** validando si el usuario esta autenticado */
     public isAuthenticated(): Observable<boolean> {
         // @TODO here!
-        return new Observable();
+        return new BehaviorSubject<boolean>(true).asObservable();
     }
 
     /** validando si el usuario NO esta autenticado */
     public isInvited(): Observable<boolean> {
         // @TODO here!
-        return new Observable();
+        return new BehaviorSubject<boolean>(false).asObservable();
     }
 }

@@ -7,7 +7,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AuthRoutingModule } from './auth.module.routing';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { SharedModule } from '../shared/shared.module';
 import { BootstrapCoreModule } from '../core/bootstrap.core.module';
 
 
@@ -16,7 +15,6 @@ import { BootstrapCoreModule } from '../core/bootstrap.core.module';
         CommonModule,
         ReactiveFormsModule,
         TranslateModule,
-        SharedModule,
         BootstrapCoreModule,
         
         AuthRoutingModule,

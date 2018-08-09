@@ -22,7 +22,7 @@ export class GuestGuard implements CanActivate {
         return this.auth.isInvited().pipe(tap(loggedIn => {
             if (!loggedIn) {
                 log.debug('Authenticated, redirecting...');
-                this.router.navigate(['/invoice']);
+                this.router.navigate(['/admin']);
             }
         }));
     }

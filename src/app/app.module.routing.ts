@@ -13,7 +13,7 @@ const routes: Routes = [
     ]),
 
     AuthRoute.withShell([
-        { path: 'invoice', loadChildren: './pages/invoice/invoice.module#InvoiceModule' }
+        { path: 'admin', loadChildren: './pages/admin/admin.module#AdminModule' }
     ]),
     
     // Fallback when no prior route is matched
