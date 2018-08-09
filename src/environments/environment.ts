@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    appName: 'Test Localadventures',
+    appName: 'Test LocalAdventures',
 };
 
 /*

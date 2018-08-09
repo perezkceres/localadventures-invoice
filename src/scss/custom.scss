@@ -1,0 +1,15 @@
+@-webkit-keyframes backgroundHeaderAnimation {
+    0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
+}
+
+@keyframes backgroundHeaderAnimation {
+    0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1080px;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}
