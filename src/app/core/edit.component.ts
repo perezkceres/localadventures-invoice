@@ -7,6 +7,7 @@ import * as _ from "lodash";
 
 import { IterableObject, IBase } from "./models/base.model";
 import { CrudComponent } from "./crud.component";
+import { ModelService } from "./services/model.service";
 
 
 export abstract class EditComponent<T extends IBase> extends CrudComponent<T> {
@@ -34,26 +35,8 @@ export abstract class EditComponent<T extends IBase> extends CrudComponent<T> {
             this.itemId = params['id'];
         });
 
-        // this._locale.defaultLocaleChanged.subscribe((item: string) => { 
-        //     this.onLanguageCodeChangedDataRecieved(item); 
-        // });
-        // this._locale.currencyCodeChanged.subscribe(
-        //     (currency: string) => {
-        //         this.onChangedCurrencyRecieved(currency);
-        //     }
-        // );
-
         // el formulario tiene que inicializarse aqui para poder pintarse bien en la UI
         this.form = this.serv.toFormGroup(this.item);
-
-        // // cuando estoy editando una entidad del modelo
-        // if (this.itemId) {
-        //     this.serv.findById(this.itemId).then(res => {
-        //         // almaceno la entidad del modelo
-        //         this.item = _.merge(this.item, res);
-
-        //     });
-        // }
 
         // se bindea la entidad del modelo con los campos del formulario
         this.form.patchValue(this.item);
