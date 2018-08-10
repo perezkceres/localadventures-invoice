@@ -94,10 +94,34 @@
                     color: #fff;
                 }
             }
+
+            
+
+            &:hover {
+                & ~ .add-more-service {
+                    max-height: 3em;
+                }
+            }
         }
         .form-control {
             font-size: 1em;
             font-weight: 500;
+        }
+
+        .add-more-service {
+            max-height: 0;
+            background-color: #fd8f5f;
+            cursor: pointer;
+            overflow: hidden;
+            transition: max-height 0.3s;
+
+            span {
+                display: block;
+                color: #fff;
+                font-size: 1em;
+                font-weight: 600;
+                padding: 0.5em 0px;
+            }
         }
     }
 }

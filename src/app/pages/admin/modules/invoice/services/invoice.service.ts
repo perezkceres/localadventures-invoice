@@ -54,6 +54,7 @@ export class InvoiceService extends ModelService<Invoice> {
 
                 group[key] = new FormGroup(subGroup);
             } else if (item[key] instanceof Array) {
+                // https://stackoverflow.com/questions/45155112/angular2-reactive-form-table
                 let listItems = [];
                 // cada uno de los elementos de la lista
                 _.each(item[key], (service: Service) => {
