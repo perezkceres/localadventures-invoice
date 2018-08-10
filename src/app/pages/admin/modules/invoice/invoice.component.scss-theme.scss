@@ -1,0 +1,9 @@
+@mixin invoice-component-theme() {
+    .modal-form {
+        background: linear-gradient(-90deg, $form-primary, $form-secundary);
+
+        label, .modal-form-step-title {
+            color: $header-text-color;
+        }
+    }
+}

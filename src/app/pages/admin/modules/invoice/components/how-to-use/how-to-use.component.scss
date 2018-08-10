@@ -1,0 +1,48 @@
+.wrapper-who-you-are {
+    margin: 10em 0 5em 0;
+
+    .form-steps {
+        position: relative;
+        height: 230px;
+        min-height: 230px;
+
+        .modal-form {
+            position: relative;
+            overflow-y: visible;
+            height: 230px;
+
+            margin: 0px auto;
+            border-radius: 3px;
+
+            .modal-form-header {
+                position: absolute;
+                opacity: 1;
+                top: -115px;
+                left: 0px;
+                width: 100%;
+                height: 50%;
+                max-height: 100%;
+                background: url(https://cdn2.hubspot.net/hubfs/53/tools/Multi%20Step%20Form/offer.png) no-repeat;
+                background-position-x: 50%;
+            }
+
+            .modal-form-body {
+                display: flex;
+                height: 100%;
+                width: 100%;
+                min-width: 100%;
+                -webkit-box-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                align-items: center;
+            }
+            .modal-form-step-1 {
+                width: 60%;
+                min-height: 130px;
+            }
+            .modal-form-step-title {
+                margin-bottom: 1em;
+            }
+        }
+    }
+}

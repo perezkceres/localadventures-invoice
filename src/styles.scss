@@ -18,12 +18,14 @@
 
 // personalizacion de los componentes de la app segun el tema
 @import 'app/core/components/shell-auth/shell-auth.component.scss-theme';
+@import 'app/pages/admin/modules/invoice/invoice.component.scss-theme';
 
 
 .default-theme {
-    body {
-        color: $text-color;
-    }
+    // body {
+    //     color: $text-color;
+    // }
 
     @include app-shell-auth-component-theme();
+    @include invoice-component-theme();
 }
