@@ -82,16 +82,16 @@
                 <table class="table mt-5">
                     <thead>
                         <tr>
-                            <th scope="col">
+                            <th scope="col" width="110px">
                                 <input type="text" class="form-control invoice-highlight" id="serviceIdText" formControlName="serviceIdText">
                             </th>
                             <th scope="col">
                                 <input type="text" class="form-control invoice-highlight" id="serviceDescriptionText" formControlName="serviceDescriptionText">
                             </th>
-                            <th scope="col">
+                            <th scope="col" width="130px">
                                 <input type="text" class="form-control invoice-highlight text-center" id="serviceQtyText" formControlName="serviceQtyText">
                             </th>
-                            <th scope="col">
+                            <th scope="col" width="130px">
                                 <input type="text" class="form-control invoice-highlight text-center" id="servicePriceText" formControlName="servicePriceText">
                             </th>
                         </tr>
@@ -108,7 +108,12 @@
                                 <input type="text" class="form-control invoice-highlight text-center" formControlName="qty" placeholder="0">
                             </td>
                             <td scope="row">
-                                <input type="text" class="form-control invoice-highlight" formControlName="price" placeholder="$0.00">
+                                <div class="price-action">
+                                    <input type="text" class="form-control invoice-highlight text-center" formControlName="price" placeholder="$0.00">
+                                    <span class="delete-service" (click)="removeService(i)">
+                                        <img src="https://cdn2.hubspot.net/hub/53/file-1134457772.svg" />
+                                    </span>
+                                </div>
                             </td>
                         </tr>
                     </tbody>

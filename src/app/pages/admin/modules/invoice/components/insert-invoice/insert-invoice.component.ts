@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { EditComponent } from '../../../../../../core/edit.component';
 import { InvoiceService } from '../../services/invoice.service';
+import { IService } from '../../models/service.model';
 
 
 @Component({
@@ -48,5 +49,10 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
     /** adiciona nuevo servicio */
     public addService(){
         this.serv.addService(this.form);
+    }
+
+    /** adiciona nuevo servicio */
+    public removeService(position: number){
+        this.serv.removeService(this.form, position);
     }
 }

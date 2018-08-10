@@ -93,9 +93,15 @@ export class InvoiceService extends ModelService<Invoice> {
 
     /** adiciona nuevo servicio al listado */
     public addService(form): void {
-        const control = <FormArray>form.controls['services'];
+        let control = <FormArray>form.controls['services'];
         let serv = this.initItem(new Service());
         control.push(serv);
+    }
+
+    /** elimina servicio al listado */
+    public removeService(form, index): void {
+        let control = <FormArray>form.controls['services'];
+        control.removeAt(index)
     }
 
     /**

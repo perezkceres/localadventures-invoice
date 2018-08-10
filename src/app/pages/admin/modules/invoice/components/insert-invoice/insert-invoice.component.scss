@@ -82,7 +82,7 @@
     .services-row {
         table {
             margin-bottom: 0;
-            
+
             thead {
                 background-color: #425b76;
                 box-shadow: none;
@@ -97,7 +97,42 @@
                 }
             }
 
-            
+            tbody {
+                tr {
+                    &:hover {
+                        .price-action {
+                            .delete-service {
+                                opacity: 1;
+                                z-index: 10;
+                                transform: translate(0, 30%);
+                            }
+                        }
+                    }
+                }
+                td {
+                    &:last-child {
+                        padding: 0;
+                    }
+                }
+            }
+
+            .price-action {
+                padding: 0.5em 1em;
+                position: relative;
+                overflow: hidden;
+
+                .delete-service {
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: 0.2em;
+                    height: 1.5em;
+                    width: 1.5em;
+                    transform: translate(125%, 30%);
+                    cursor: pointer;
+                    transition: transform 0.3s, opacity 0.3s;
+                }
+            }
 
             &:hover {
                 & ~ .add-more-service {
