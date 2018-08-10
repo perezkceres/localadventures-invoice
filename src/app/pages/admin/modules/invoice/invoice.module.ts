@@ -9,6 +9,7 @@ import { MainInvoiceComponent } from './components/main-invoice/main-invoice.com
 import { BootstrapCoreModule } from '../../../../core/bootstrap.core.module';
 import { AdminInvoiceRoutingModule } from './invoice.routing';
 import { FaqInvoiceComponent } from './components/faq-invoice/faq-invoice.component';
+import { HowToUseComponent } from './components/how-to-use/how-to-use.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { FaqInvoiceComponent } from './components/faq-invoice/faq-invoice.compon
         InvoiceComponent,
         MainInvoiceComponent,
         FaqInvoiceComponent,
+        HowToUseComponent,
     ],
     imports: [
         CommonModule,
