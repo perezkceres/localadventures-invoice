@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { FormGroup, Validators, FormControl } from "@angular/forms";
+import { FormGroup, Validators, FormControl, FormArray } from "@angular/forms";
 
 import * as _ from "lodash";
 
@@ -8,6 +8,7 @@ import { ModelService } from "../../../../../core/services/model.service";
 import { AccountService } from "../../../../../core/services/account.service";
 import { Invoice, IInvoice } from "../models/invoice.model";
 import { Base } from "../../../../../core/models/base.model";
+import { Service } from "../models/service.model";
 
 @Injectable()
 export class InvoiceService extends ModelService<Invoice> {
@@ -52,6 +53,21 @@ export class InvoiceService extends ModelService<Invoice> {
                 });
 
                 group[key] = new FormGroup(subGroup);
+            } else if (item[key] instanceof Array) {
+                let listItems = [];
+                // cada uno de los elementos de la lista
+                _.each(item[key], (service: Service) => {
+                    let subGroup: any = {};
+                    _.each(_.keys(service), sub => {
+                        let subValidations;
+                        
+                        subGroup[sub] = new FormControl(service[sub], subValidations);
+                    });
+
+                    listItems.push(new FormGroup(subGroup));
+                });
+
+                group[key] = new FormArray(listItems);
             } else {
                 let validations;
 

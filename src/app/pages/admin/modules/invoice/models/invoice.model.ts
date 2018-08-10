@@ -19,6 +19,11 @@ export interface IInvoice extends IBase {
     invoiceDateText: string;
     dueDateText: string;
 
+    serviceIdText: string;
+    serviceDescriptionText: string;
+    serviceQtyText: string;
+    servicePriceText: string;
+
     comment: string;
     subTotal: number;
     tax: number;
@@ -38,6 +43,11 @@ export class Invoice extends Base implements IInvoice {
     invoiceNroText: string;
     invoiceDateText: string;
     dueDateText: string;
+
+    serviceIdText: string;
+    serviceDescriptionText: string;
+    serviceQtyText: string;
+    servicePriceText: string;
 
     comment: string;
     subTotal: number;
@@ -68,6 +78,11 @@ export class Invoice extends Base implements IInvoice {
             invoiceNroText: 'Invoice No:',
             invoiceDateText: 'Invoice Date:',
             dueDateText: 'Due Date:',
+
+            serviceIdText: 'ID',
+            serviceDescriptionText: 'Description',
+            serviceQtyText: 'Quantity',
+            servicePriceText: 'Price',
         
             comment: null,
             subTotal: 0,

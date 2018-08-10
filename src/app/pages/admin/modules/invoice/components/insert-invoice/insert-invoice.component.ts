@@ -39,4 +39,9 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
             this.validateAllFormFields(this.form);
         }
     }
+
+    /** obtiene el placeholder siempre de al menos dos digitos */
+    public placeholderServiceId(i:number): string {
+        return i > 9 ? i.toString() : `0${i}`;
+    }
 }

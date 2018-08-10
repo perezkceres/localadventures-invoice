@@ -26,7 +26,7 @@ export class Service extends Base implements IService {
             id: null,
             description: null,
             qty: 1,
-            price: 0,
+            price: null,
             hours: false,
         };
     }

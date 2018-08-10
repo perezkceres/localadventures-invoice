@@ -1,6 +1,7 @@
 <div class="invoice-wrapper">
     <form id="invoice-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
         <div class="d-flex w-100">
+
             <div class="col-6">
                 <h2 class="invoice-title">Invoice</h2>
                 <div formGroupName="company">
@@ -74,6 +75,50 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="services-row">
+            <div class="col">
+                <table class="table mt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <input type="text" class="form-control invoice-highlight" id="serviceIdText" formControlName="serviceIdText">
+                            </th>
+                            <th scope="col">
+                                <input type="text" class="form-control invoice-highlight" id="serviceDescriptionText" formControlName="serviceDescriptionText">
+                            </th>
+                            <th scope="col">
+                                <input type="text" class="form-control invoice-highlight text-center" id="serviceQtyText" formControlName="serviceQtyText">
+                            </th>
+                            <th scope="col">
+                                <input type="text" class="form-control invoice-highlight text-center" id="servicePriceText" formControlName="servicePriceText">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody formArrayName="services">
+                        <tr *ngFor="let service of form.controls.services.controls; let i=index" [formGroupName]="i" >
+                            <td scope="row">
+                                <input type="text" class="form-control invoice-highlight" formControlName="id" placeholder="{{ placeholderServiceId(i + 1) }}">
+                            </td>
+                            <td scope="row">
+                                <input type="text" class="form-control invoice-highlight" formControlName="description" placeholder="Item description">
+                            </td>
+                            <td scope="row">
+                                <input type="text" class="form-control invoice-highlight" formControlName="qty" placeholder="0">
+                            </td>
+                            <td scope="row">
+                                <input type="text" class="form-control invoice-highlight" formControlName="price" placeholder="$0.00">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="text-center">+ Add More</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </form>
 </div>
