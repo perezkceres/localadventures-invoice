@@ -1,4 +1,5 @@
 import * as _ from "lodash";
+import * as moment from 'moment';
 
 import { IBase, Base } from "../../../../../core/models/base.model";
 import { ICompany, Company } from "./company.model";
@@ -12,8 +13,8 @@ export interface IInvoice extends IBase {
     services: Array<IService>;
 
     invoiceNro: number;
-    invoiceDate: Date;
-    dueDate: Date;
+    invoiceDate: string;
+    dueDate: string;
 
     comment: string;
     subTotal: number;
@@ -46,8 +47,8 @@ export class Invoice extends Base implements IInvoice {
     services: Array<IService>;
 
     invoiceNro: number;
-    invoiceDate: Date;
-    dueDate: Date;
+    invoiceDate: string;
+    dueDate: string;
 
     comment: string;
     subTotal: number;
@@ -90,8 +91,8 @@ export class Invoice extends Base implements IInvoice {
             services: services,
         
             invoiceNro: null,
-            invoiceDate: new Date(),
-            dueDate: new Date(),
+            invoiceDate: moment().format('MM/DD/YYYY'),
+            dueDate: moment().format('MM/DD/YYYY'),
         
             comment: null,
             subTotal: 0,
