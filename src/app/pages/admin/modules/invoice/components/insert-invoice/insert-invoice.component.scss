@@ -211,4 +211,89 @@
             }
         }
     }
+
+    .wrapper-comment {
+        padding: 1em;
+        border: 1px solid #425b76;
+        border-radius: 0.5em;
+
+        p {
+            font-size: 1em;
+            font-weight: 500;
+            color: #425b76;
+        }
+
+        textarea {
+            resize: none;
+            min-height: 2em;
+            font-size: 1em;
+            font-weight: 500;
+
+            &:hover {
+                resize: vertical;
+            }
+        }
+    }
+    .wrapper-resumen {
+        // width: 100%;
+        display: flex;
+        flex-direction: column;
+        // font-size: 1em;
+        // font-weight: 500;
+
+        .invoice-resumen-row {
+            width: 100%;
+            display: flex;
+            // -webkit-box-pack: justify;
+            // justify-content: space-between;
+
+            input {
+                font-size: 1em;
+                font-weight: 600;
+                color: #2d3e50;
+            }
+            input[readonly] {
+                background-color: transparent;
+
+                &:focus {
+                    border-color: transparent;
+                }
+            }
+
+            .wrapper-tax, .wrapper-discount {
+                width: 20%;
+                position: relative;
+
+                .percent-money {
+                    position: absolute;
+                    cursor: pointer;
+                    left: 100%;
+                    top: 3px;
+                    font-weight: 600;
+                    transition: color 0.3s;
+
+                    &.money-active {
+                        left: -15px;
+                    }
+
+                    &:hover {
+                        color: #fd8f5f;
+                    }
+                }
+            }
+            
+            &.wrapper-total {
+                border-top: 2px solid #425b76;
+                margin-top: .5em;
+                padding-top: .5em;
+            }
+        }
+    }
+
+    .invoice-data-footer {
+        font-size: .9em;
+        font-weight: 500;
+        color: #7c98b6;
+        margin-bottom: 0;
+    }
 }

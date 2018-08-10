@@ -62,4 +62,29 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
         this.form.controls['serviceQtyText'].setValue(change ? 'Hours': 'Quantity');
         this.form.controls['servicePriceText'].setValue(change ? 'Rate': 'Price');
     }
+
+    /** obtiene el valor total */
+    public totalValue(): number {
+        return 0.00;
+    }
+
+    /** obtiene el valor subtotal */
+    public subTotalValue(): number {
+        return 0.00;
+    }
+
+    /** cambia el tax entre % y $ */
+    public switchTaxType() {
+        this.item.taxPercent = !this.item.taxPercent;
+    }
+
+    /** cambia el discount entre % y $ */
+    public switchDiscountType() {
+        this.item.discountPercent = !this.item.discountPercent;
+    }
+
+    /** obtiene el simbolo que se utiliza en el resumen del invoice */
+    public getPercentMoney(type: boolean): string {
+        return type ? '%' : '$';
+    }
 }

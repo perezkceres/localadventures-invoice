@@ -15,6 +15,16 @@ export interface IInvoice extends IBase {
     invoiceDate: Date;
     dueDate: Date;
 
+    comment: string;
+    subTotal: number;
+    tax: number;
+    discount: number;
+    total: number;
+
+    taxPercent: boolean;
+    discountPercent: boolean;
+    serviceHours: boolean;
+
     invoiceNroText: string;
     invoiceDateText: string;
     dueDateText: string;
@@ -24,13 +34,10 @@ export interface IInvoice extends IBase {
     serviceQtyText: string;
     servicePriceText: string;
 
-    comment: string;
-    subTotal: number;
-    tax: number;
-    discount: number;
-    total: number;
-
-    serviceHours: boolean;
+    subTotalText: string;
+    taxText: string;
+    discountText: string;
+    totalText: string;
 }
 
 export class Invoice extends Base implements IInvoice {
@@ -42,6 +49,16 @@ export class Invoice extends Base implements IInvoice {
     invoiceDate: Date;
     dueDate: Date;
 
+    comment: string;
+    subTotal: number;
+    tax: number;
+    discount: number;
+    total: number;
+
+    taxPercent: boolean;
+    discountPercent: boolean;
+    serviceHours: boolean;
+
     invoiceNroText: string;
     invoiceDateText: string;
     dueDateText: string;
@@ -51,13 +68,10 @@ export class Invoice extends Base implements IInvoice {
     serviceQtyText: string;
     servicePriceText: string;
 
-    comment: string;
-    subTotal: number;
-    tax: number;
-    discount: number;
-    total: number;
-
-    serviceHours: boolean;
+    subTotalText: string;
+    taxText: string;
+    discountText: string;
+    totalText: string;
 
     constructor(options?: IInvoice) {
         super();
@@ -78,6 +92,16 @@ export class Invoice extends Base implements IInvoice {
             invoiceNro: null,
             invoiceDate: new Date(),
             dueDate: new Date(),
+        
+            comment: null,
+            subTotal: 0,
+            tax: null,
+            discount: null,
+            total: 0,
+
+            taxPercent: true,
+            discountPercent: true,
+            serviceHours: false,
 
             invoiceNroText: 'Invoice No:',
             invoiceDateText: 'Invoice Date:',
@@ -87,14 +111,11 @@ export class Invoice extends Base implements IInvoice {
             serviceDescriptionText: 'Description',
             serviceQtyText: 'Quantity',
             servicePriceText: 'Price',
-        
-            comment: null,
-            subTotal: 0,
-            tax: null,
-            discount: null,
-            total: 0,
 
-            serviceHours: false,
+            subTotalText: 'Subtotal:',
+            taxText: 'Tax:',
+            discountText: 'Discount:',
+            totalText: 'Total:',
         };
     }
 } 

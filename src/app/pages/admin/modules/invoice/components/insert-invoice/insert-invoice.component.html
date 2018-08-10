@@ -132,5 +132,40 @@
                 </div>
             </div>
         </div>
+
+        <div class="d-flex w-100 mt-5">
+            <div class="col-6">
+                <div class="form-group wrapper-comment" [ngClass]="displayFieldCss('comment')">
+                    <p for="comment" class="text-center mb-1">Notes:</p>
+                    <textarea class="form-control invoice-highlight text-center" placeholder="Any additional comments" name="comment" formControlName="comment"></textarea>
+                </div>
+            </div>
+            <div class="col-6 wrapper-resumen">
+                <div class="invoice-resumen-row">
+                    <input type="text" class="form-control invoice-highlight" id="subTotalText" formControlName="subTotalText">
+                    <input type="text" class="form-control text-right" readonly id="subTotal" [value]="subTotalValue()">
+                </div>
+                <div class="invoice-resumen-row">
+                    <input type="text" class="form-control invoice-highlight" id="taxText" formControlName="taxText">
+                    <div class="wrapper-tax">
+                        <input type="text" class="form-control invoice-highlight text-right" id="tax" formControlName="tax" placeholder="0">
+                        <span class="percent-money" [ngClass]="{'money-active': !item.taxPercent}" (click)="switchTaxType()">{{ getPercentMoney(item.taxPercent) }}</span>
+                    </div>
+                </div>
+                <div class="invoice-resumen-row">
+                    <input type="text" class="form-control invoice-highlight" id="discountText" formControlName="discountText">
+                    <div class="wrapper-discount">
+                        <input type="text" class="form-control invoice-highlight text-right" id="discount" formControlName="discount" placeholder="0">
+                        <span class="percent-money" [ngClass]="{'money-active': !item.discountPercent}" (click)="switchDiscountType()">{{ getPercentMoney(item.discountPercent) }}</span>
+                    </div>
+                </div>
+                <div class="invoice-resumen-row wrapper-total">
+                    <input type="text" class="form-control invoice-highlight" id="totalText" formControlName="totalText">
+                    <input type="text" class="form-control text-right" readonly id="total" [value]="totalValue()">
+                </div>
+            </div>
+        </div>
+
+        <p class="invoice-data-footer text-center mt-5">This invoice was created using the HubSpot <a href="https://www.hubspot.com/invoice-template-generator" target="_blank">Invoice Template Generator</a></p>
     </form>
 </div>
