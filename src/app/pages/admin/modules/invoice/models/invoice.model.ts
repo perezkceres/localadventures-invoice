@@ -44,11 +44,14 @@ export class Invoice extends Base implements IInvoice {
     }
 
     private _getDefaults(): IInvoice {
+        let services = new Array<IService>();
+        services.push(new Service());
+
         return {
             id: null,
             company: new Company(),
             client: new Client(),
-            services: new Array<Service>(),
+            services: services,
         
             invoiceNro: null,
             invoiceDate: new Date(),

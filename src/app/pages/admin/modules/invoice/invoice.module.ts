@@ -11,6 +11,7 @@ import { AdminInvoiceRoutingModule } from './invoice.routing';
 import { FaqInvoiceComponent } from './components/faq-invoice/faq-invoice.component';
 import { HowToUseComponent } from './components/how-to-use/how-to-use.component';
 import { InsertInvoiceComponent } from './components/insert-invoice/insert-invoice.component';
+import { InvoiceService } from './services/invoice.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { InsertInvoiceComponent } from './components/insert-invoice/insert-invoi
 
         AdminInvoiceRoutingModule,
     ],
-    providers: []
+    providers: [InvoiceService]
 })
 export class InvoiceModule {
     constructor() { }

@@ -3,6 +3,7 @@ import { Invoice } from '../../models/invoice.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { EditComponent } from '../../../../../../core/edit.component';
+import { InvoiceService } from '../../services/invoice.service';
 
 
 @Component({
@@ -14,13 +15,28 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
 
     constructor(
         protected route: ActivatedRoute, protected router: Router,
+        protected serv: InvoiceService
     ) {
-        super(route, router);
+        super(route, router, serv, new Invoice());
     }
 
-    ngOnInit(): void { }
+    // ngOnInit(): void { }
 
-    ngOnDestroy(): void { }
+    // ngOnDestroy(): void { }
 
     ngAfterViewInit(): void { }
+
+    /**
+     * Enviar datos al servidor
+     */
+    public onSubmit() {
+        this.formSubmitAttempt = true;
+
+        console.log(this.form.value);
+        if (this.form.valid) {
+            /** */
+        } else {
+            this.validateAllFormFields(this.form);
+        }
+    }
 }

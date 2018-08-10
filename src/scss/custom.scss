@@ -5,6 +5,39 @@
     background-color: white;
 }
 
+/** BEGIN - form */
+.form-group {
+    margin-bottom: 0;
+}
+.form-control {
+    font-size: 0.9em;
+    color: #2d3e50;
+    background-color: transparent;
+    outline: none;
+    border: 1px dashed transparent;
+    padding: 0;
+    border-radius: 0;
+
+    &:focus {
+        box-shadow: none;
+    }
+
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #7c98b6!important;
+        opacity: 1; /* Firefox */
+    }
+    
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #7c98b6!important;
+    }
+    
+    &::-ms-input-placeholder { /* Microsoft Edge */
+        color: #7c98b6!important;
+    }
+}
+
+/** END - form */
+
 @-webkit-keyframes backgroundHeaderAnimation {
     0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
 }

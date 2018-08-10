@@ -1,0 +1,53 @@
+.invoice-wrapper {
+    color: #2d3e50;
+    padding: 3em;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0.5em 1.5em -0.5em;
+    border: 1px solid #f2f5f8;
+    border-radius: 0.2em;
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    .invoice-title {
+        font-weight: 700;
+    }
+    .invoice-highlight-title {
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    .wrapper-logo-company {
+        position: relative;
+        width: 60%;
+        max-width: 60%;
+        display: flex;
+        transition: transform .3s;
+        margin-left: auto;
+
+        border-width: 2px;
+        border-style: dashed;
+        border-color: #fd8f5f;
+
+        .upload-logo-company-text {
+            width: 60%;
+            font-size: 1em;
+            font-weight: 600;
+            text-align: center;
+            margin: 0 auto;
+        }
+        input {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        &:hover {
+            transform: scale(0.9);
+        }
+    }
+}

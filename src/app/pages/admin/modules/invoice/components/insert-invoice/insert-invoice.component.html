@@ -1,4 +1,59 @@
-<h1 class="display-3">Hello, world!</h1>
-<p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and
-    three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+<div class="invoice-wrapper">
+    <form id="invoice-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="d-flex w-100">
+            <div class="col-6">
+                <h2 class="invoice-title">Invoice</h2>
+                <div formGroupName="company">
+                    <div class="form-group" [ngClass]="displayFieldCss('company.name')">
+                        <input type="text" class="form-control invoice-highlight invoice-highlight-title" id="company.name" formControlName="name" placeholder="Your Company*">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.firstLastName')">
+                        <input type="text" class="form-control invoice-highlight" id="company.firstLastName" formControlName="firstLastName" placeholder="Your First and Last Name*">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.website')">
+                        <input type="text" class="form-control invoice-highlight" id="company.website" formControlName="website" placeholder="Company Website*">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.address')">
+                        <input type="text" class="form-control invoice-highlight" id="company.address" formControlName="address" placeholder="Company Address">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.cityState')">
+                        <input type="text" class="form-control invoice-highlight" id="company.cityState" formControlName="cityState" placeholder="City, State ZIP">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.country')">
+                        <input type="text" class="form-control invoice-highlight" id="company.country" formControlName="country" placeholder="Country">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.phone')">
+                        <input type="text" class="form-control invoice-highlight" id="company.phone" formControlName="phone" placeholder="Phone No.*">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.email')">
+                        <input type="text" class="form-control invoice-highlight" id="company.email" formControlName="email" placeholder="Email Address*">
+                    </div>
+                </div>
+
+                <div formGroupName="client" class="mt-1">
+                    <div class="form-group" [ngClass]="displayFieldCss('client.companyName')">
+                        <input type="text" class="form-control invoice-highlight invoice-highlight-title" id="client.companyName" formControlName="companyName" placeholder="Client's Company">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('client.name')">
+                        <input type="text" class="form-control invoice-highlight" id="client.name" formControlName="name" placeholder="Client's Name">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('client.address')">
+                        <input type="text" class="form-control invoice-highlight" id="client.address" formControlName="address" placeholder="Client's Address">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('client.cityState')">
+                        <input type="text" class="form-control invoice-highlight" id="client.cityState" formControlName="cityState" placeholder="City, State ZIP">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('client.country')">
+                        <input type="text" class="form-control invoice-highlight" id="client.country" formControlName="country" placeholder="Country">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="wrapper-logo-company p-2">
+                    <span class="upload-logo-company-text">Drag &amp; drop a logo file or click to upload</span>
+                    <input type="file" class="upload-logo-company" accept="image/*">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
