@@ -21,5 +21,9 @@
 
 
 .default-theme {
+    body {
+        color: $text-color;
+    }
+
     @include app-shell-auth-component-theme();
 }
