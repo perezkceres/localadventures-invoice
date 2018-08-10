@@ -97,12 +97,4 @@ export class Invoice extends Base implements IInvoice {
             serviceHours: false,
         };
     }
-
-    /** actualiza texto segun tipo de servicio */
-    public updateServiceText() {
-        if (this.serviceHours) {
-            this.serviceQtyText = 'Hours';
-            this.servicePriceText = 'Rate';
-        }
-    }
 } 

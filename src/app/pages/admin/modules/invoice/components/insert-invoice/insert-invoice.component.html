@@ -79,7 +79,7 @@
 
         <div class="services-row">
             <div class="col">
-                <div class="services-popover text-center">
+                <div class="services-popover text-center" [ngClass]="{'service-popover-hidden': hiddenPopover}">
                     <p>Are you a service based company?</p>
                     <p>Switch to hours/rates:</p>
                     <div class="services-popover-footer">

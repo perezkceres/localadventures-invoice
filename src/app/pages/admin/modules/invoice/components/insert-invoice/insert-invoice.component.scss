@@ -114,6 +114,11 @@
                 border-right: 15px solid transparent;
                 border-top: 15px solid rgb(253, 143, 95);
             }
+
+            &.service-popover-hidden {
+                visibility: hidden;
+                opacity: 0;
+            }
         }
 
         table {
@@ -131,6 +136,10 @@
                 
                 .form-control {
                     color: #fff;
+
+                    &:focus {
+                        background-color: transparent;
+                    }
                 }
             }
 

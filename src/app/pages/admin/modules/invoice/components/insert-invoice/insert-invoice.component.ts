@@ -13,22 +13,21 @@ import { InvoiceService } from '../../services/invoice.service';
 })
 export class InsertInvoiceComponent extends EditComponent<Invoice> implements OnInit, OnDestroy, AfterViewInit {
 
+    /** controla visualizacion de popover para Switch to hours/rates */
+    hiddenPopover: boolean;
+
     constructor(
         protected route: ActivatedRoute, protected router: Router,
         protected serv: InvoiceService
     ) {
         super(route, router, serv, new Invoice());
+
+        this.hiddenPopover = false;
     }
-
-    // ngOnInit(): void { }
-
-    // ngOnDestroy(): void { }
 
     ngAfterViewInit(): void { }
 
-    /**
-     * Enviar datos al servidor
-     */
+    /** Enviar datos al servidor */
     public onSubmit() {
         this.formSubmitAttempt = true;
 
@@ -58,9 +57,9 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
     /** Switch to hours/rates */
     public switchHours(change: boolean) {
         this.item.serviceHours = change;
+        this.hiddenPopover = true;
 
-        this.form.value.serviceQtyText = 'Hours';
-        this.form.value.servicePriceText = 'Rate';
-        this.item.updateServiceText();
+        this.form.controls['serviceQtyText'].setValue(change ? 'Hours': 'Quantity');
+        this.form.controls['servicePriceText'].setValue(change ? 'Rate': 'Price');
     }
 }
