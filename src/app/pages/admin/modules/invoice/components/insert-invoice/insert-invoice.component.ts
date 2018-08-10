@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { Invoice } from '../../models/invoice.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import * as _ from "lodash";
+
 import { EditComponent } from '../../../../../../core/edit.component';
 import { InvoiceService } from '../../services/invoice.service';
 
@@ -63,24 +65,48 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
         this.form.controls['servicePriceText'].setValue(change ? 'Rate': 'Price');
     }
 
-    /** obtiene el valor total */
-    public totalValue(): number {
-        return 0.00;
-    }
-
     /** obtiene el valor subtotal */
     public subTotalValue(): number {
-        return 0.00;
+        let subtotal = 0;
+
+        // @TODO optimizar
+        _.each(this.form.value.services, s => {
+            subtotal += s.qty * s.price;
+        });
+
+        return subtotal;
+    }
+
+    /** obtiene el valor total */
+    public totalValue(): number {
+        let subtotal = this.subTotalValue();
+        let invoice = this.form.value;
+        let tax = 0;
+        let discount = 0;
+
+        // calculo el tax
+        if (invoice.tax) {
+            tax = invoice.taxPercent ? (subtotal * invoice.tax / 100) : parseFloat(invoice.tax);
+        }
+
+        // calculo el descuento
+        if (invoice.discount) {
+            discount = invoice.discountPercent ? (subtotal * invoice.discount / 100) : parseFloat(invoice.discount);
+        }
+
+        return subtotal + tax - discount;
     }
 
     /** cambia el tax entre % y $ */
     public switchTaxType() {
         this.item.taxPercent = !this.item.taxPercent;
+        this.form.controls['taxPercent'].setValue(this.item.taxPercent);
     }
 
     /** cambia el discount entre % y $ */
     public switchDiscountType() {
         this.item.discountPercent = !this.item.discountPercent;
+        this.form.controls['discountPercent'].setValue(this.item.discountPercent);
     }
 
     /** obtiene el simbolo que se utiliza en el resumen del invoice */
