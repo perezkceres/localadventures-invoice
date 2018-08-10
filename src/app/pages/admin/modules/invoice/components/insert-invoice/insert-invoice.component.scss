@@ -50,4 +50,44 @@
             transform: scale(0.9);
         }
     }
+
+    .wrapper-invoice-data {
+        input[readonly] {
+            background-color: transparent;
+        }
+
+        .invoice-data-row {
+            width: 100%;
+            display: flex;
+            // -webkit-box-pack: end;
+            justify-content: flex-end;
+
+            .form-control {
+                width: 30%;
+                font-size: 1em;
+                font-weight: 500;
+                text-align: right;
+
+                &.form-control-label {
+                    width: 50%;
+                }
+                &.form-control-date {
+                    font-size: .9em;
+                    font-weight: normal;
+                }
+            }
+        }
+
+        // .form-row {
+        //     margin-left: 0;
+        //     margin-right: 0;
+        // }
+        // [class*="col"] {
+        //     padding: 0;
+        // }
+
+        // .invoice-highlight-label {
+        //     font-size: 1.2em;
+        // }
+    }
 }

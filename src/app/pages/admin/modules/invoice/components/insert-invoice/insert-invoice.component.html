@@ -56,7 +56,20 @@
                         <input type="file" class="upload-logo-company" accept="image/*">
                     </div>
                     <div class="mt-auto wrapper-invoice-data">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, exercitationem quo nesciunt earum nobis quos eligendi, deserunt quia assumenda expedita sint? Est nihil libero molestias error, suscipit dolor mollitia distinctio?</p>
+                        <div class="invoice-data-row">
+                            <input type="text" class="form-control invoice-highlight" id="invoiceNroText" readonly formControlName="invoiceNroText">
+                            <input type="text" class="form-control invoice-highlight" id="invoiceNro" formControlName="invoiceNro" placeholder="####">
+                        </div>
+
+                        <div class="invoice-data-row">
+                            <input type="text" class="form-control invoice-highlight form-control-label" id="invoiceDateText" formControlName="invoiceDateText">
+                            <input type="text" class="form-control invoice-highlight form-control-date" id="invoiceDate" formControlName="invoiceDate">
+                        </div>
+
+                        <div class="invoice-data-row">
+                            <input type="text" class="form-control invoice-highlight form-control-label" id="dueDateText" formControlName="dueDateText">
+                            <input type="text" class="form-control invoice-highlight form-control-date" id="dueDate" formControlName="dueDate">
+                        </div>
                     </div>
                 </div>
             </div>

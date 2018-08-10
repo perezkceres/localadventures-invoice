@@ -15,6 +15,10 @@ export interface IInvoice extends IBase {
     invoiceDate: Date;
     dueDate: Date;
 
+    invoiceNroText: string;
+    invoiceDateText: string;
+    dueDateText: string;
+
     comment: string;
     subTotal: number;
     tax: number;
@@ -30,6 +34,10 @@ export class Invoice extends Base implements IInvoice {
     invoiceNro: number;
     invoiceDate: Date;
     dueDate: Date;
+
+    invoiceNroText: string;
+    invoiceDateText: string;
+    dueDateText: string;
 
     comment: string;
     subTotal: number;
@@ -56,6 +64,10 @@ export class Invoice extends Base implements IInvoice {
             invoiceNro: null,
             invoiceDate: new Date(),
             dueDate: new Date(),
+
+            invoiceNroText: 'Invoice No:',
+            invoiceDateText: 'Invoice Date:',
+            dueDateText: 'Due Date:',
         
             comment: null,
             subTotal: 0,
