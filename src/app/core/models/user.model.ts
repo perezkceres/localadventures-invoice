@@ -6,7 +6,7 @@ export interface IUser extends IBase {
     password: string;
 }
 
-export class User extends Base {
+export class User extends Base implements IBase {
     username: string;
     password: string;
 

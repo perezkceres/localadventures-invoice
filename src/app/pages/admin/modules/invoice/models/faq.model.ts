@@ -8,7 +8,7 @@ export interface IFaq extends IBase {
     open: boolean;
 }
 
-export class Faq extends Base {
+export class Faq extends Base implements IFaq {
     title: string;
     description: string;
     open: boolean;
