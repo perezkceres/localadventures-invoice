@@ -105,7 +105,7 @@
                                 <input type="text" class="form-control invoice-highlight" formControlName="description" placeholder="Item description">
                             </td>
                             <td scope="row">
-                                <input type="text" class="form-control invoice-highlight" formControlName="qty" placeholder="0">
+                                <input type="text" class="form-control invoice-highlight text-center" formControlName="qty" placeholder="0">
                             </td>
                             <td scope="row">
                                 <input type="text" class="form-control invoice-highlight" formControlName="price" placeholder="$0.00">
@@ -114,7 +114,7 @@
                     </tbody>
                 </table>
                 <div class="add-more-service text-center">
-                    <span>+ Add More</span>
+                    <span (click)="addService()">+ Add More</span>
                 </div>
             </div>
         </div>

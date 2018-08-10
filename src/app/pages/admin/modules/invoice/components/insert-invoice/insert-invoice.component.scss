@@ -81,6 +81,8 @@
 
     .services-row {
         table {
+            margin-bottom: 0;
+            
             thead {
                 background-color: #425b76;
                 box-shadow: none;
@@ -121,6 +123,10 @@
                 font-size: 1em;
                 font-weight: 600;
                 padding: 0.5em 0px;
+            }
+
+            &:hover {
+                max-height: 3em;
             }
         }
     }

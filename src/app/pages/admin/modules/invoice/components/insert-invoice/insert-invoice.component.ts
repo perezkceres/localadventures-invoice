@@ -44,4 +44,9 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
     public placeholderServiceId(i:number): string {
         return i > 9 ? i.toString() : `0${i}`;
     }
+
+    /** adiciona nuevo servicio */
+    public addService(){
+        this.serv.addService(this.form);
+    }
 }

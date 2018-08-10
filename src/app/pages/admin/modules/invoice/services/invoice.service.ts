@@ -58,14 +58,7 @@ export class InvoiceService extends ModelService<Invoice> {
                 let listItems = [];
                 // cada uno de los elementos de la lista
                 _.each(item[key], (service: Service) => {
-                    let subGroup: any = {};
-                    _.each(_.keys(service), sub => {
-                        let subValidations;
-                        
-                        subGroup[sub] = new FormControl(service[sub], subValidations);
-                    });
-
-                    listItems.push(new FormGroup(subGroup));
+                    listItems.push(this.initItem(service));
                 });
 
                 group[key] = new FormArray(listItems);
@@ -73,7 +66,7 @@ export class InvoiceService extends ModelService<Invoice> {
                 let validations;
 
                 // switch (key) {
-                //     case "digitalCertificate":
+                //     case "myKey":
                 //         validations = Validators.required;
                 //         break;
                 // }
@@ -83,6 +76,26 @@ export class InvoiceService extends ModelService<Invoice> {
         });
 
         return new FormGroup(group);
+    }
+
+    /** inicializa FormControl sin validaciones */
+    public initItem(item): FormGroup {
+        // Here, we make the form for each day
+        let subGroup: any = {};
+        _.each(_.keys(item), sub => {
+            let subValidations;
+
+            subGroup[sub] = new FormControl(item[sub], subValidations);
+        });
+
+        return new FormGroup(subGroup)
+    }
+
+    /** adiciona nuevo servicio al listado */
+    public addService(form): void {
+        const control = <FormArray>form.controls['services'];
+        let serv = this.initItem(new Service());
+        control.push(serv);
     }
 
     /**
