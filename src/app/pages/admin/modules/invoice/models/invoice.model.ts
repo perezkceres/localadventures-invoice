@@ -29,6 +29,8 @@ export interface IInvoice extends IBase {
     tax: number;
     discount: number;
     total: number;
+
+    serviceHours: boolean;
 }
 
 export class Invoice extends Base implements IInvoice {
@@ -54,6 +56,8 @@ export class Invoice extends Base implements IInvoice {
     tax: number;
     discount: number;
     total: number;
+
+    serviceHours: boolean;
 
     constructor(options?: IInvoice) {
         super();
@@ -89,6 +93,16 @@ export class Invoice extends Base implements IInvoice {
             tax: null,
             discount: null,
             total: 0,
+
+            serviceHours: false,
         };
+    }
+
+    /** actualiza texto segun tipo de servicio */
+    public updateServiceText() {
+        if (this.serviceHours) {
+            this.serviceQtyText = 'Hours';
+            this.servicePriceText = 'Rate';
+        }
     }
 } 

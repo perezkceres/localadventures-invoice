@@ -80,7 +80,44 @@
     }
 
     .services-row {
+        .services-popover {
+            position: absolute;
+            visibility: visible;
+            opacity: 1;
+            right: 15px;
+            top: 0;
+            background-color: #fd8f5f;
+            transform: translateY(calc(-100% - 8px));
+            z-index: 10;
+            padding: 1em;
+            border-radius: 5px;
+            transition: opacity 0.5s;
+
+            p, span {
+                font-size: 1em;
+                color: #fff;
+                margin-bottom: 0;
+                font-weight: 600;
+            }
+
+            span[role=button] {
+                cursor: pointer;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: -14px;
+                transform: translateX(-50%);
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                border-top: 15px solid rgb(253, 143, 95);
+            }
+        }
+
         table {
+            margin-top: 0;
             margin-bottom: 0;
 
             thead {

@@ -79,6 +79,15 @@
 
         <div class="services-row">
             <div class="col">
+                <div class="services-popover text-center">
+                    <p>Are you a service based company?</p>
+                    <p>Switch to hours/rates:</p>
+                    <div class="services-popover-footer">
+                        <span role="button" (click)="switchHours(true)">Yes</span>
+                        <span>&nbsp;/&nbsp;</span>
+                        <span role="button" (click)="switchHours(false)">No</span>
+                    </div>
+                </div>
                 <table class="table mt-5">
                     <thead>
                         <tr>

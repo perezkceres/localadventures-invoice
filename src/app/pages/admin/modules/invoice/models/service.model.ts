@@ -6,14 +6,12 @@ export interface IService extends IBase {
     description: string;
     qty: number;
     price: number;
-    hours: boolean;
 }
 
 export class Service extends Base implements IService {
     description: string;
     qty: number;
     price: number;
-    hours: boolean;
 
     constructor(options?: IService) {
         super();
@@ -27,7 +25,6 @@ export class Service extends Base implements IService {
             description: null,
             qty: 1,
             price: null,
-            hours: false,
         };
     }
 } 
