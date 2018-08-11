@@ -1,25 +1,21 @@
-/*
- * Entry point of global application style.
- * Component-specific style should not go here and be included directly as part of the components.
- */
+$primary-color: #ff7a59;
+$secundary-color: #ff8f59;
+$header-text-color: white;
+$text-color: #33475b;
 
-// Theme variables, must be included before the libraries to allow overriding defaults
-@import "scss/base/reset";
-@import "scss/base/variables";
+$form-primary: #00bda5;
+$form-secundary: #00a4bd;
 
-// fuentes generales que se van a utilizar en el sistema
-@import "scss/fonts.scss";
+$background-jumbotron: #f2f5f8;
+$highlight-color: #ff7a59;
 
-// personalizacion de cada tema
-@import "theme/default";
+/** BEGIN - how to use */
+$form-control-color: #2d3e50;
+/** END - how to use */
 
-// personalizacion general de la app para todos los temas definidos
-@import "scss/custom";
-
-// personalizacion de los componentes de la app segun el tema
-// @import 'app/auth/components/login/login.component.scss-theme';
-
-
-.default-theme {
-    // @include app-login-component-theme();
-}
+/** BEGIN - insert invoice */
+$error-color: #ef3b49;
+$invoice-data-footer-color: #7c98b6;
+$total-separator-color: #425b76;
+$percent-money-color: #fd8f5f;
+/** END - insert invoice */

@@ -4,7 +4,10 @@
 
 export const environment = {
     production: false,
-    appName: 'Test Localadventures',
+    appName: 'Test LocalAdventures',
+    url: {
+        api: 'https://localadventures.mx/api/v1'
+    }
 };
 
 /*

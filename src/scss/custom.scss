@@ -1,0 +1,95 @@
+.jumbotron {
+    margin-bottom: 0;
+}
+.jumbotron-white {
+    background-color: white;
+}
+
+/** BEGIN - form */
+
+.form-control {
+    font-size: 0.9em;
+    color: #2d3e50;
+    background-color: transparent;
+    outline: none;
+    border: 1px dashed transparent;
+    padding: 0;
+    border-radius: 0;
+
+    &:focus {
+        box-shadow: none;
+    }
+
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #7c98b6!important;
+        opacity: 1; /* Firefox */
+    }
+    
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #7c98b6!important;
+    }
+    
+    &::-ms-input-placeholder { /* Microsoft Edge */
+        color: #7c98b6!important;
+    }
+}
+
+.form-group {
+    margin-bottom: 0;
+
+    &.text-error {
+        .form-control {
+            color: #ef3b49;
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: #ef3b49!important;
+                opacity: 1; /* Firefox */
+            }
+            
+            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: #ef3b49!important;
+            }
+            
+            &::-ms-input-placeholder { /* Microsoft Edge */
+                color: #ef3b49!important;
+            }
+        }
+    }
+}
+
+.btn-danger {
+    font-size: 1em;
+    font-weight: 600;
+    padding: 1em 2em;
+    
+    background-color: #ff7a59;
+    border-color: #ff7a59;
+
+    &:hover, &:focus, &:active:focus {
+        background-color: #ff8f73;
+        border-color: #ff8f73;
+        box-shadow: none!important;
+    }
+}
+
+/** END - form */
+
+@-webkit-keyframes backgroundHeaderAnimation {
+    0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
+}
+
+@keyframes backgroundHeaderAnimation {
+    0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1080px;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}

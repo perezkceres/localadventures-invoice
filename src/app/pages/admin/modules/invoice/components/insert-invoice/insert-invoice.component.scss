@@ -1,0 +1,300 @@
+.invoice-wrapper {
+    padding: 3em;
+
+    border: 1px solid;
+
+    border-radius: 0.2em;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .invoice-title {
+        font-weight: 700;
+    }
+    .invoice-highlight-title {
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    .wrapper-logo-company {
+        position: relative;
+        width: 60%;
+        max-width: 60%;
+        display: flex;
+        transition: transform .3s;
+        margin-left: auto;
+        border: 2px dashed;
+
+        .upload-logo-company-text {
+            width: 60%;
+            font-size: 1em;
+            font-weight: 600;
+            text-align: center;
+            margin: 0 auto;
+        }
+        input {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        img {
+            margin-left: auto;
+        }
+
+        &.logo-company-empty {
+            img {
+                display: none;
+            }
+        }
+        &:not(.logo-company-empty) {
+            .upload-logo-company-text {
+                display: none;
+            }
+        }
+
+        &:hover {
+            transform: scale(0.9);
+        }
+    }
+
+    .wrapper-invoice-data {
+        .invoice-data-row {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+
+            .form-control {
+                width: 30%;
+                font-size: 1em;
+                font-weight: 500;
+                text-align: right;
+
+                &.form-control-label {
+                    width: 50%;
+                }
+                &.form-control-date {
+                    font-size: .9em;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+
+    .services-row {
+        .services-popover {
+            position: absolute;
+            visibility: visible;
+            opacity: 1;
+            right: 15px;
+            top: 0;
+            transform: translateY(calc(-100% - 8px));
+            z-index: 10;
+            padding: 1em;
+            border-radius: 5px;
+            transition: opacity 0.5s;
+
+            p, span {
+                font-size: 1em;
+                margin-bottom: 0;
+                font-weight: 600;
+            }
+
+            span[role=button] {
+                cursor: pointer;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: -14px;
+                transform: translateX(-50%);
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                border-top: 15px solid;
+            }
+
+            &.service-popover-hidden {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+        table {
+            margin-top: 0;
+            margin-bottom: 0;
+
+            thead {
+                box-shadow: none;
+
+                th {
+                    padding: 0.5em 1em;
+                    border-bottom: 0;
+                }
+            }
+
+            tbody {
+                tr {
+                    &:hover {
+                        .price-action {
+                            .delete-service {
+                                opacity: 1;
+                                z-index: 10;
+                                transform: translate(0, 30%);
+                            }
+                        }
+                    }
+                }
+                td {
+                    &:last-child {
+                        padding: 0;
+                    }
+                }
+            }
+
+            .price-action {
+                padding: 0.5em 1em;
+                position: relative;
+                overflow: hidden;
+
+                .delete-service {
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: 0.2em;
+                    height: 1.5em;
+                    width: 1.5em;
+                    transform: translate(125%, 30%);
+                    cursor: pointer;
+                    transition: transform 0.3s, opacity 0.3s;
+                }
+            }
+
+            &:hover {
+                & ~ .add-more-service {
+                    max-height: 3em;
+                }
+            }
+        }
+        .form-control {
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        .add-more-service {
+            max-height: 0;
+            cursor: pointer;
+            overflow: hidden;
+            transition: max-height 0.3s;
+
+            span {
+                display: block;
+                font-size: 1em;
+                font-weight: 600;
+                padding: 0.5em 0px;
+            }
+
+            &:hover {
+                max-height: 3em;
+            }
+        }
+    }
+
+    .wrapper-comment {
+        padding: 1em;
+        border: 1px solid;
+        border-radius: 0.5em;
+
+        p {
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        textarea {
+            resize: none;
+            min-height: 2em;
+            font-size: 1em;
+            font-weight: 500;
+
+            &:hover {
+                resize: vertical;
+            }
+        }
+    }
+    .wrapper-resumen {
+        display: flex;
+        flex-direction: column;
+
+        .invoice-resumen-row {
+            width: 100%;
+            display: flex;
+
+            input {
+                font-size: 1em;
+                font-weight: 600;
+            }
+
+            .wrapper-tax, .wrapper-discount {
+                width: 20%;
+                position: relative;
+
+                .percent-money {
+                    position: absolute;
+                    cursor: pointer;
+                    left: 100%;
+                    top: 3px;
+                    font-weight: 600;
+                    transition: color 0.3s;
+
+                    &.money-active {
+                        left: -15px;
+                    }
+                }
+            }
+            
+            &.wrapper-total {
+                border-top: 2px solid;
+                margin-top: .5em;
+                padding-top: .5em;
+            }
+        }
+    }
+
+    .invoice-data-footer {
+        font-size: .9em;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+}
+
+.invoice-wrapper-footer {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+
+    button {
+        &:hover {
+            & ~ .submit-error.form-has-error {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+
+    .submit-error {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        top: -70px;
+        right: -7px;
+        width: 200px;
+        padding: 0.5em 1em;
+        border-radius: 5px;
+        transition: opacity 0.3s;
+        font-weight: 700;
+    }
+}

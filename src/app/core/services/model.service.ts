@@ -2,6 +2,7 @@ import { FormGroup } from "@angular/forms";
 import { Response } from '@angular/http';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 
+import { Observable } from "rxjs";
 import * as _ from "lodash";
 
 import { IAccountService } from "./account.service";
@@ -11,7 +12,7 @@ import { IBase, IterableObject } from "../models/base.model";
  * Interfaz base para los Servicios
  */
 export interface IModelService<T extends IBase> {
-    findAll(url?: string): Promise<Array<T>>;
+    findAll(url?: string): Observable<Array<T>>;
 
     findById(id: string, url?: string): Promise<T>;
 
@@ -42,10 +43,8 @@ export abstract class ModelService<T extends IBase> implements IModelService<T> 
     /**
      * Obtiene todos los elementos de una Entidad
      */
-    public findAll(url?: string): Promise<Array<T>> {
-        return this.http.get<Array<T>>(url || this.urlBase)
-            .toPromise()
-            .catch(e => this.handleError(e));
+    public findAll(url?: string): Observable<Array<T>> {
+        return this.http.get<Array<T>>(url || this.urlBase);
     }
 
     /**

@@ -42,4 +42,10 @@ export class AccountService implements IAccountService {
         // @TODO here!
         return new BehaviorSubject<boolean>(false).asObservable();
     }
+
+    /** token de autenticacion del usuario */
+    public get accessToken(): string {
+        // @TODO here!
+        return '8k2nCc5jWmbBDNXd@fzmPaYQv263&LCyyCkNshLLHgp?$PZ%an9eX*XZ#H+rWrdtA?8xjRGVBB3j7Cvet=MeM56Qm3ybC';
+    }
 }

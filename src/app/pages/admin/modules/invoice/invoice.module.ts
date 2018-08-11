@@ -8,12 +8,20 @@ import { InvoiceComponent } from './invoice.component';
 import { MainInvoiceComponent } from './components/main-invoice/main-invoice.component';
 import { BootstrapCoreModule } from '../../../../core/bootstrap.core.module';
 import { AdminInvoiceRoutingModule } from './invoice.routing';
+import { FaqInvoiceComponent } from './components/faq-invoice/faq-invoice.component';
+import { HowToUseComponent } from './components/how-to-use/how-to-use.component';
+import { InsertInvoiceComponent } from './components/insert-invoice/insert-invoice.component';
+import { InvoiceService } from './services/invoice.service';
+import { FaqService } from './services/faq.service';
 
 
 @NgModule({
     declarations: [
         InvoiceComponent,
         MainInvoiceComponent,
+        InsertInvoiceComponent,
+        FaqInvoiceComponent,
+        HowToUseComponent,
     ],
     imports: [
         CommonModule,
@@ -23,7 +31,7 @@ import { AdminInvoiceRoutingModule } from './invoice.routing';
 
         AdminInvoiceRoutingModule,
     ],
-    providers: []
+    providers: [InvoiceService, FaqService]
 })
 export class InvoiceModule {
     constructor() { }

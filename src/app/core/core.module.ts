@@ -1,6 +1,6 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
 import { TranslateModule } from '@ngx-translate/core';
@@ -12,6 +12,8 @@ import { I18nService } from './services/i18n/i18n.service';
 import { GuestGuard } from './guards/guest.guard';
 import { BootstrapCoreModule } from './bootstrap.core.module';
 import { AccountService } from './services/account.service';
+import { AuthenticationInterceptor } from './services/interceptor/authentication.interceptor.service';
+import { FakeBackendInterceptor } from './services/interceptor/backend.interceptor.service';
 
 
 @NgModule({
@@ -32,6 +34,11 @@ import { AccountService } from './services/account.service';
         AuthGuard,
         GuestGuard,
         I18nService,
+
+        { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true },
+
+        // api backend simulation
+        { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
     ]
 })
 export class CoreModule {
@@ -41,4 +48,23 @@ export class CoreModule {
             throw new Error(`${parentModule} has already been loaded. Import Core module in the AppModule only.`);
         }
     }
+    
+    // // forRoot allows to override providers
+    // // https://angular.io/docs/ts/latest/guide/ngmodule.html#!#core-for-root
+    // public static forRoot(): ModuleWithProviders {
+    //     return {
+    //         ngModule: CoreModule,
+    //         providers: [
+    //             AccountService,
+    //             AuthGuard,
+    //             GuestGuard,
+    //             I18nService,
+
+    //             { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true },
+
+    //             // api backend simulation
+    //             { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
+    //         ]
+    //     };
+    // }
 }
