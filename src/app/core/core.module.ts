@@ -13,6 +13,7 @@ import { GuestGuard } from './guards/guest.guard';
 import { BootstrapCoreModule } from './bootstrap.core.module';
 import { AccountService } from './services/account.service';
 import { AuthenticationInterceptor } from './services/interceptor/authentication.interceptor.service';
+import { FakeBackendInterceptor } from './services/interceptor/backend.interceptor.service';
 
 
 @NgModule({
@@ -28,7 +29,17 @@ import { AuthenticationInterceptor } from './services/interceptor/authentication
         ShellGuestComponent,
         ShellAuthComponent,
     ],
-    providers: []
+    providers: [
+        AccountService,
+        AuthGuard,
+        GuestGuard,
+        I18nService,
+
+        { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true },
+
+        // api backend simulation
+        { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
+    ]
 })
 export class CoreModule {
     constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
@@ -38,23 +49,22 @@ export class CoreModule {
         }
     }
     
-    // forRoot allows to override providers
-    // https://angular.io/docs/ts/latest/guide/ngmodule.html#!#core-for-root
-    public static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: CoreModule,
-            providers: [
-                AccountService,
-                AuthGuard,
-                GuestGuard,
-                I18nService,
+    // // forRoot allows to override providers
+    // // https://angular.io/docs/ts/latest/guide/ngmodule.html#!#core-for-root
+    // public static forRoot(): ModuleWithProviders {
+    //     return {
+    //         ngModule: CoreModule,
+    //         providers: [
+    //             AccountService,
+    //             AuthGuard,
+    //             GuestGuard,
+    //             I18nService,
 
-                { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true },
+    //             { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true },
 
-                // // api backend simulation
-                // // { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
-                // //{ provide: HTTP_INTERCEPTORS, useClass: OrderFakeInterceptor, multi: true },
-            ]
-        };
-    }
+    //             // api backend simulation
+    //             { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
+    //         ]
+    //     };
+    // }
 }
