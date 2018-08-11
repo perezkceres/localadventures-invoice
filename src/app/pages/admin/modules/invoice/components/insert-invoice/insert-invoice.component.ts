@@ -18,6 +18,9 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
     /** controla visualizacion de popover para Switch to hours/rates */
     hiddenPopover: boolean;
 
+    /** base64 de logo de la empresa */
+    logoBase64: string;
+
     constructor(
         protected route: ActivatedRoute, protected router: Router,
         protected serv: InvoiceService
@@ -25,6 +28,7 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
         super(route, router, serv, new Invoice());
 
         this.hiddenPopover = false;
+        this.logoBase64 = null;
     }
 
     ngAfterViewInit(): void { }
@@ -112,5 +116,27 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
     /** obtiene el simbolo que se utiliza en el resumen del invoice */
     public getPercentMoney(type: boolean): string {
         return type ? '%' : '$';
+    }
+
+    /** visualiza el logo de la empresa */
+    public changeLogo() {
+        this.getLogoBase64().then(data => {
+            this.logoBase64 = data;
+        }).catch(() => {
+            this.logoBase64 = null;
+        });
+    }
+
+    /**
+     * Convierte el certificado digital en base64
+     */
+    private getLogoBase64(): Promise<string> {
+        const file: File = (document.querySelector('.wrapper-logo-company input[type="file"]') as any).files[0];
+
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+        });
     }
 }

@@ -24,10 +24,7 @@
         display: flex;
         transition: transform .3s;
         margin-left: auto;
-
-        border-width: 2px;
-        border-style: dashed;
-        border-color: #fd8f5f;
+        border: 2px dashed #fd8f5f;
 
         .upload-logo-company-text {
             width: 60%;
@@ -44,6 +41,23 @@
             height: 100%;
             opacity: 0;
             cursor: pointer;
+        }
+
+        img {
+            margin-left: auto;
+        }
+        
+        &.logo-company-empty {
+            img {
+                display: none;
+            }
+        }
+        &:not(.logo-company-empty) {
+            border-color: transparent;
+
+            .upload-logo-company-text {
+                display: none;
+            }
         }
 
         &:hover {

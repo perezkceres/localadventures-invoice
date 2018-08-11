@@ -52,9 +52,10 @@
 
             <div class="col-6">
                 <div class="d-flex align-items-end flex-column" style="height: 100%;">
-                    <div class="wrapper-logo-company p-2">
+                    <div class="wrapper-logo-company p-2" [ngClass]="{'logo-company-empty': logoBase64 === null}">
                         <span class="upload-logo-company-text">Drag &amp; drop a logo file or click to upload</span>
-                        <input type="file" class="upload-logo-company" accept="image/*">
+                        <input type="file" (change)="changeLogo()" class="upload-logo-company" id="upload-logo-company" accept="image/*">
+                        <img [src]="logoBase64" alt="Logo">
                     </div>
                     <div class="mt-auto wrapper-invoice-data">
                         <div class="invoice-data-row">
