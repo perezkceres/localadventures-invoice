@@ -45,4 +45,14 @@
             }
         }
     }
+
+    .form-control {
+        font-size: 1em;
+        color: #2d3e50;
+        background-color: rgba(255, 255, 255, .9);
+        outline: none;
+        border: none;
+        padding: .375rem .75rem;
+        border-radius: .25rem;
+    }
 }
