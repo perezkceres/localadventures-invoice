@@ -19,14 +19,113 @@
     /** BEGIN - how to use */
     .wrapper-who-you-are {
         .form-control {
-            font-size: 1em;
             color: $form-control-color;
             background-color: rgba(255, 255, 255, .9);
-            outline: none;
-            border: none;
-            padding: .375rem .75rem;
-            border-radius: .25rem;
         }
     }
     /** END - how to use */
+
+    /** BEGIN - insert-invoice */
+    .invoice-wrapper {
+        color: $form-control-color;
+        background-color: $header-text-color;
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 0.5em 1.5em -0.5em;
+        border-color: $background-jumbotron;
+    
+        .wrapper-logo-company {
+            border-color: $percent-money-color;
+
+            &:not(.logo-company-empty) {
+                border-color: transparent;
+            }
+        }
+    
+        .wrapper-invoice-data {
+            input[readonly] {
+                background-color: transparent;
+            }
+        }
+    
+        .services-row {
+            .services-popover {
+                background-color: $percent-money-color;
+    
+                p, span {
+                    color: $header-text-color;
+                }
+    
+                &:before {
+                    border-top-color: $percent-money-color;
+                }
+            }
+    
+            table {
+                thead {
+                    background-color: $total-separator-color;
+                    
+                    .form-control {
+                        color: $header-text-color;
+    
+                        &:focus {
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+    
+            .add-more-service {
+                background-color: $percent-money-color;
+    
+                span {
+                    color: $header-text-color;
+                }
+            }
+        }
+    
+        .wrapper-comment {
+            border-color: $total-separator-color;
+    
+            p {
+                color: $total-separator-color;
+            }
+        }
+        .wrapper-resumen {
+            .invoice-resumen-row {
+                input {
+                    color: $form-control-color;
+                }
+                input[readonly] {
+                    background-color: transparent;
+    
+                    &:focus {
+                        border-color: transparent;
+                    }
+                }
+    
+                .wrapper-tax, .wrapper-discount {
+                    .percent-money {
+                        &:hover {
+                            color: $percent-money-color;
+                        }
+                    }
+                }
+                
+                &.wrapper-total {
+                    border-top-color: $total-separator-color;
+                }
+            }
+        }
+    
+        .invoice-data-footer {
+            color: $invoice-data-footer-color;
+        }
+    }
+    
+    .invoice-wrapper-footer {
+        .submit-error {
+            color: $header-text-color;
+            background-color: $error-color
+        }
+    }
+    /** END - insert invoice */
 }

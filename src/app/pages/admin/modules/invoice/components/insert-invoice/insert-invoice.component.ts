@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { Invoice } from '../../models/invoice.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,6 +12,7 @@ import { InvoiceService } from '../../services/invoice.service';
     selector: 'insert-invoice',
     styleUrls: ['./insert-invoice.component.scss'],
     templateUrl: './insert-invoice.component.html',
+    encapsulation: ViewEncapsulation.None,
 })
 export class InsertInvoiceComponent extends EditComponent<Invoice> implements OnInit, OnDestroy, AfterViewInit {
 
