@@ -1,0 +1,177 @@
+<form id="invoice-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+    <div class="invoice-wrapper">
+        <div class="d-flex w-100">
+
+            <div class="col-6">
+                <h2 class="invoice-title">Invoice</h2>
+                <div formGroupName="company">
+                    <div class="form-group" [ngClass]="displayFieldCss('company.name')">
+                        <input type="text" class="form-control invoice-highlight invoice-highlight-title" id="company.name" formControlName="name" placeholder="Your Company*">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.firstLastName')">
+                        <input type="text" class="form-control invoice-highlight" id="company.firstLastName" formControlName="firstLastName" placeholder="Your First and Last Name*">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.website')">
+                        <input type="text" class="form-control invoice-highlight" id="company.website" formControlName="website" placeholder="Company Website*">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.address')">
+                        <input type="text" class="form-control invoice-highlight" id="company.address" formControlName="address" placeholder="Company Address">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.cityState')">
+                        <input type="text" class="form-control invoice-highlight" id="company.cityState" formControlName="cityState" placeholder="City, State ZIP">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.country')">
+                        <input type="text" class="form-control invoice-highlight" id="company.country" formControlName="country" placeholder="Country">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.phone')">
+                        <input type="text" class="form-control invoice-highlight" id="company.phone" formControlName="phone" placeholder="Phone No.*">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('company.email')">
+                        <input type="text" class="form-control invoice-highlight" id="company.email" formControlName="email" placeholder="Email Address*">
+                    </div>
+                </div>
+
+                <div formGroupName="client" class="mt-1">
+                    <div class="form-group" [ngClass]="displayFieldCss('client.companyName')">
+                        <input type="text" class="form-control invoice-highlight invoice-highlight-title" id="client.companyName" formControlName="companyName" placeholder="Client's Company">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('client.name')">
+                        <input type="text" class="form-control invoice-highlight" id="client.name" formControlName="name" placeholder="Client's Name">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('client.address')">
+                        <input type="text" class="form-control invoice-highlight" id="client.address" formControlName="address" placeholder="Client's Address">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('client.cityState')">
+                        <input type="text" class="form-control invoice-highlight" id="client.cityState" formControlName="cityState" placeholder="City, State ZIP">
+                    </div>
+                    <div class="form-group" [ngClass]="displayFieldCss('client.country')">
+                        <input type="text" class="form-control invoice-highlight" id="client.country" formControlName="country" placeholder="Country">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="d-flex align-items-end flex-column" style="height: 100%;">
+                    <div class="wrapper-logo-company p-2" [ngClass]="{'logo-company-empty': logoBase64 === null}">
+                        <span class="upload-logo-company-text">Drag &amp; drop a logo file or click to upload</span>
+                        <input type="file" (change)="changeLogo()" class="upload-logo-company" id="upload-logo-company" accept="image/*">
+                        <img [src]="logoBase64" alt="Logo">
+                    </div>
+                    <div class="mt-auto wrapper-invoice-data">
+                        <div class="invoice-data-row">
+                            <input type="text" class="form-control invoice-highlight" id="invoiceNroText" readonly formControlName="invoiceNroText">
+                            <input type="text" class="form-control invoice-highlight" id="invoiceNro" formControlName="invoiceNro" placeholder="####">
+                        </div>
+
+                        <div class="invoice-data-row">
+                            <input type="text" class="form-control invoice-highlight form-control-label" id="invoiceDateText" formControlName="invoiceDateText">
+                            <input type="text" class="form-control invoice-highlight form-control-date" id="invoiceDate" formControlName="invoiceDate">
+                        </div>
+
+                        <div class="invoice-data-row">
+                            <input type="text" class="form-control invoice-highlight form-control-label" id="dueDateText" formControlName="dueDateText">
+                            <input type="text" class="form-control invoice-highlight form-control-date" id="dueDate" formControlName="dueDate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="services-row">
+            <div class="col">
+                <div class="services-popover text-center" [ngClass]="{'service-popover-hidden': hiddenPopover}">
+                    <p>Are you a service based company?</p>
+                    <p>Switch to hours/rates:</p>
+                    <div class="services-popover-footer">
+                        <span role="button" (click)="switchHours(true)">Yes</span>
+                        <span>&nbsp;/&nbsp;</span>
+                        <span role="button" (click)="switchHours(false)">No</span>
+                    </div>
+                </div>
+                <table class="table mt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col" width="110px">
+                                <input type="text" class="form-control invoice-highlight" id="serviceIdText" formControlName="serviceIdText">
+                            </th>
+                            <th scope="col">
+                                <input type="text" class="form-control invoice-highlight" id="serviceDescriptionText" formControlName="serviceDescriptionText">
+                            </th>
+                            <th scope="col" width="130px">
+                                <input type="text" class="form-control invoice-highlight text-center" id="serviceQtyText" formControlName="serviceQtyText">
+                            </th>
+                            <th scope="col" width="130px">
+                                <input type="text" class="form-control invoice-highlight text-center" id="servicePriceText" formControlName="servicePriceText">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody formArrayName="services">
+                        <tr *ngFor="let service of form.controls.services.controls; let i=index" [formGroupName]="i" >
+                            <td scope="row">
+                                <input type="text" class="form-control invoice-highlight" formControlName="id" placeholder="{{ placeholderServiceId(i + 1) }}">
+                            </td>
+                            <td scope="row">
+                                <input type="text" class="form-control invoice-highlight" formControlName="description" placeholder="Item description">
+                            </td>
+                            <td scope="row">
+                                <input type="text" class="form-control invoice-highlight text-center" formControlName="qty" placeholder="0">
+                            </td>
+                            <td scope="row">
+                                <div class="price-action">
+                                    <input type="text" class="form-control invoice-highlight text-center" formControlName="price" placeholder="$0.00">
+                                    <span class="delete-service" (click)="removeService(i)">
+                                        <img src="https://cdn2.hubspot.net/hub/53/file-1134457772.svg" />
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="add-more-service text-center">
+                    <span (click)="addService()">+ Add More</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex w-100 mt-5">
+            <div class="col-6">
+                <div class="form-group wrapper-comment" [ngClass]="displayFieldCss('comment')">
+                    <p for="comment" class="text-center mb-1">Notes:</p>
+                    <textarea class="form-control invoice-highlight text-center" placeholder="Any additional comments" name="comment" formControlName="comment"></textarea>
+                </div>
+            </div>
+            <div class="col-6 wrapper-resumen">
+                <div class="invoice-resumen-row">
+                    <input type="text" class="form-control invoice-highlight" id="subTotalText" formControlName="subTotalText">
+                    <input type="text" class="form-control text-right" readonly id="subTotal" [value]="subTotalValue()">
+                </div>
+                <div class="invoice-resumen-row">
+                    <input type="text" class="form-control invoice-highlight" id="taxText" formControlName="taxText">
+                    <div class="wrapper-tax">
+                        <input type="text" class="form-control invoice-highlight text-right" id="tax" formControlName="tax" placeholder="0">
+                        <span class="percent-money" [ngClass]="{'money-active': !item.taxPercent}" (click)="switchTaxType()">{{ getPercentMoney(item.taxPercent) }}</span>
+                    </div>
+                </div>
+                <div class="invoice-resumen-row">
+                    <input type="text" class="form-control invoice-highlight" id="discountText" formControlName="discountText">
+                    <div class="wrapper-discount">
+                        <input type="text" class="form-control invoice-highlight text-right" id="discount" formControlName="discount" placeholder="0">
+                        <span class="percent-money" [ngClass]="{'money-active': !item.discountPercent}" (click)="switchDiscountType()">{{ getPercentMoney(item.discountPercent) }}</span>
+                    </div>
+                </div>
+                <div class="invoice-resumen-row wrapper-total">
+                    <input type="text" class="form-control invoice-highlight" id="totalText" formControlName="totalText">
+                    <input type="text" class="form-control text-right" readonly id="total" [value]="totalValue()">
+                </div>
+            </div>
+        </div>
+
+        <p class="invoice-data-footer text-center mt-5">This invoice was created using the HubSpot <a href="https://www.hubspot.com/invoice-template-generator" target="_blank">Invoice Template Generator</a></p>
+    </div>
+
+    <div class="invoice-wrapper-footer mt-4 text-right">
+        <button type="submit" class="btn btn-danger btn-lg">Download Now</button>
+        <span class="submit-error text-center" [ngClass]="{'form-has-error': hasError}">Please fill out the required fields</span>
+    </div>
+</form>

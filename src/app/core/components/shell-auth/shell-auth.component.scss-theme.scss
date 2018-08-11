@@ -1,0 +1,6 @@
+@mixin app-shell-auth-component-theme() {
+    .navbar-header-auth {
+        background-image: linear-gradient(to right, $primary-color, $secundary-color);
+        color: $header-text-color;
+    }
+}

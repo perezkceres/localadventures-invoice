@@ -1,0 +1,16 @@
+{
+    "APP_NAME": "FactorClick",
+    "About": "Acerca de",
+    "Hello world!": "Hola mundo!",
+    "Home": "Home",
+    "Logged in as": "Autenticarse como",
+    "Login": "Acceder",
+    "Logout": "Logout",
+    "Password": "Contraseña",
+    "Password is required": "La contraseña es obligatoria",
+    "Username": "Usuario",
+    "Username is required": "El usuario es obligatorio",
+    "Username or password incorrect.": "Usuario y/o contraseña son incorrectos",
+    "Remember me": "Recordarme",
+    "Version": "Versión"
+}

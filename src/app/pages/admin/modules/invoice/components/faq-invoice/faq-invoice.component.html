@@ -1,0 +1,15 @@
+<h2 class="faq-section-title text-center">Invoice FAQs</h2>
+
+<dl class="faq-list">
+    <ng-container *ngFor="let item of list">
+        <dt [ngClass]="{ 'faq-open': item.open }" (click)="item.open = !item.open">
+            <h2 class=faq-title>{{ item.title }}</h2>
+            <span class="hsg-icon hsg-icon-arrow-down-line"></span>
+        </dt>
+        <dd [innerHTML]="item.description"></dd>
+    </ng-container>
+</dl>
+
+<div class="faq-footer">
+    <p>Disclaimer: These FAQs include some information on legal issues surrounding invoicing, but legal information is not the same as legal advice -- applying the law to a specific circumstance. We’ve conducted research to better ensure that our information is accurate and useful, but we insist that you talk to a lawyer if you want professional assurance that our information, and your interpretation of it, is accurate. In a nutshell, you may not rely on this information as legal advice, nor as a recommendation or endorsement of any particular legal understanding, and you should instead see this info as for entertainment purposes only.</p>
+</div>
