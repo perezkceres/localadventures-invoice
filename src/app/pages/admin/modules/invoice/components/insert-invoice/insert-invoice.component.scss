@@ -51,8 +51,6 @@
             }
         }
         &:not(.logo-company-empty) {
-            border-color: transparent;
-
             .upload-logo-company-text {
                 display: none;
             }
@@ -64,10 +62,6 @@
     }
 
     .wrapper-invoice-data {
-        input[readonly] {
-            background-color: transparent;
-        }
-
         .invoice-data-row {
             width: 100%;
             display: flex;
@@ -97,7 +91,6 @@
             opacity: 1;
             right: 15px;
             top: 0;
-            background-color: #fd8f5f;
             transform: translateY(calc(-100% - 8px));
             z-index: 10;
             padding: 1em;
@@ -106,7 +99,6 @@
 
             p, span {
                 font-size: 1em;
-                color: #fff;
                 margin-bottom: 0;
                 font-weight: 600;
             }
@@ -123,7 +115,7 @@
                 transform: translateX(-50%);
                 border-left: 15px solid transparent;
                 border-right: 15px solid transparent;
-                border-top: 15px solid rgb(253, 143, 95);
+                border-top: 15px solid;
             }
 
             &.service-popover-hidden {
@@ -137,20 +129,11 @@
             margin-bottom: 0;
 
             thead {
-                background-color: #425b76;
                 box-shadow: none;
 
                 th {
                     padding: 0.5em 1em;
                     border-bottom: 0;
-                }
-                
-                .form-control {
-                    color: #fff;
-
-                    &:focus {
-                        background-color: transparent;
-                    }
                 }
             }
 
@@ -204,14 +187,12 @@
 
         .add-more-service {
             max-height: 0;
-            background-color: #fd8f5f;
             cursor: pointer;
             overflow: hidden;
             transition: max-height 0.3s;
 
             span {
                 display: block;
-                color: #fff;
                 font-size: 1em;
                 font-weight: 600;
                 padding: 0.5em 0px;
@@ -225,13 +206,12 @@
 
     .wrapper-comment {
         padding: 1em;
-        border: 1px solid #425b76;
+        border: 1px solid;
         border-radius: 0.5em;
 
         p {
             font-size: 1em;
             font-weight: 500;
-            color: #425b76;
         }
 
         textarea {
@@ -256,7 +236,6 @@
             input {
                 font-size: 1em;
                 font-weight: 600;
-                color: #2d3e50;
             }
 
             .wrapper-tax, .wrapper-discount {
@@ -274,15 +253,11 @@
                     &.money-active {
                         left: -15px;
                     }
-
-                    &:hover {
-                        color: #fd8f5f;
-                    }
                 }
             }
             
             &.wrapper-total {
-                border-top: 2px solid #425b76;
+                border-top: 2px solid;
                 margin-top: .5em;
                 padding-top: .5em;
             }
@@ -292,7 +267,6 @@
     .invoice-data-footer {
         font-size: .9em;
         font-weight: 500;
-        color: #7c98b6;
         margin-bottom: 0;
     }
 }
@@ -318,8 +292,6 @@
         top: -70px;
         right: -7px;
         width: 200px;
-        color: #fff;
-        background-color: #ef3b49;
         padding: 0.5em 1em;
         border-radius: 5px;
         transition: opacity 0.3s;
