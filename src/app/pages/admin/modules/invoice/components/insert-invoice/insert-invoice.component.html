@@ -169,7 +169,9 @@
 
         <p class="invoice-data-footer text-center mt-5">This invoice was created using the HubSpot <a href="https://www.hubspot.com/invoice-template-generator" target="_blank">Invoice Template Generator</a></p>
     </div>
+
     <div class="invoice-wrapper-footer mt-4 text-right">
         <button type="submit" class="btn btn-danger btn-lg">Download Now</button>
+        <span class="submit-error text-center" [ngClass]="{'form-has-error': hasError}">Please fill out the required fields</span>
     </div>
 </form>

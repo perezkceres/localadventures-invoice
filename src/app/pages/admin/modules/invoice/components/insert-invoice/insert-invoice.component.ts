@@ -21,6 +21,9 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
     /** base64 de logo de la empresa */
     logoBase64: string;
 
+    /** formulario contiene errores */
+    hasError: boolean;
+
     constructor(
         protected route: ActivatedRoute, protected router: Router,
         protected serv: InvoiceService
@@ -29,6 +32,7 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
 
         this.hiddenPopover = false;
         this.logoBase64 = null;
+        this.hasError = false;
     }
 
     ngAfterViewInit(): void { }
@@ -36,11 +40,12 @@ export class InsertInvoiceComponent extends EditComponent<Invoice> implements On
     /** Enviar datos al servidor */
     public onSubmit() {
         this.formSubmitAttempt = true;
+        this.hasError = false;
 
-        console.log(this.form.value);
         if (this.form.valid) {
             /** */
         } else {
+            this.hasError = true;
             this.validateAllFormFields(this.form);
         }
     }

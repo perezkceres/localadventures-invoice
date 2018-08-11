@@ -129,7 +129,7 @@ export abstract class EditComponent<T extends IBase> extends CrudComponent<T> {
 
     public displayFieldCss(field: string) {
         return {
-            'has-danger': this.isFieldValid(field),
+            'text-error': this.isFieldValid(field),
             // 'has-feedback': this.isFieldValid(field)
         };
     }

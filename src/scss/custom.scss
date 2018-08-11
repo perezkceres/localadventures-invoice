@@ -8,6 +8,29 @@
 /** BEGIN - form */
 .form-group {
     margin-bottom: 0;
+
+    &.text-error {
+        input {
+            color: #ef3b49;
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: #ef3b49!important;
+                opacity: 1; /* Firefox */
+            }
+            
+            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: #ef3b49!important;
+            }
+            
+            &::-ms-input-placeholder { /* Microsoft Edge */
+                color: #ef3b49!important;
+            }
+        }
+    }
 }
 .form-control {
     font-size: 0.9em;
@@ -44,9 +67,10 @@
     background-color: #ff7a59;
     border-color: #ff7a59;
 
-    &:hover {
+    &:hover, &:focus, &:active:focus {
         background-color: #ff8f73;
         border-color: #ff8f73;
+        box-shadow: none!important;
     }
 }
 
