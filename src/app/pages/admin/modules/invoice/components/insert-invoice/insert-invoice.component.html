@@ -1,5 +1,5 @@
-<div class="invoice-wrapper">
-    <form id="invoice-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+<form id="invoice-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+    <div class="invoice-wrapper">
         <div class="d-flex w-100">
 
             <div class="col-6">
@@ -168,5 +168,8 @@
         </div>
 
         <p class="invoice-data-footer text-center mt-5">This invoice was created using the HubSpot <a href="https://www.hubspot.com/invoice-template-generator" target="_blank">Invoice Template Generator</a></p>
-    </form>
-</div>
+    </div>
+    <div class="invoice-wrapper-footer mt-4 text-right">
+        <button type="submit" class="btn btn-danger btn-lg">Download Now</button>
+    </div>
+</form>

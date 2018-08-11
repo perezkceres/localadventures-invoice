@@ -36,6 +36,20 @@
     }
 }
 
+.btn-danger {
+    font-size: 1em;
+    font-weight: 600;
+    padding: 1em 2em;
+    
+    background-color: #ff7a59;
+    border-color: #ff7a59;
+
+    &:hover {
+        background-color: #ff8f73;
+        border-color: #ff8f73;
+    }
+}
+
 /** END - form */
 
 @-webkit-keyframes backgroundHeaderAnimation {
