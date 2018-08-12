@@ -22,7 +22,7 @@ export abstract class EditComponent<T extends IBase> extends CrudComponent<T> {
 
     constructor(
         protected route: ActivatedRoute, protected router: Router,
-        protected serv: ModelService<T>, protected item: T
+        protected serv: ModelService<T>, public item: T
     ) {
         super();
 

@@ -107,7 +107,7 @@
                         </tr>
                     </thead>
                     <tbody formArrayName="services">
-                        <tr *ngFor="let service of form.controls.services.controls; let i=index" [formGroupName]="i" >
+                        <tr *ngFor="let service of form['controls'].services['controls']; let i=index" [formGroupName]="i" >
                             <td scope="row">
                                 <input type="text" class="form-control invoice-highlight" formControlName="id" placeholder="{{ placeholderServiceId(i + 1) }}">
                             </td>
