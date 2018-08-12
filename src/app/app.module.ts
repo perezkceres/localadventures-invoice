@@ -9,7 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { AppRoutingModule } from './app.module.routing';
 import { AppComponent } from './app.component';
-import { environment } from '../environments/environment';
+// import { environment } from '../environments/environment';
 import { CoreModule } from './core/core.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
@@ -21,7 +21,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ],
     imports: [
         BrowserModule,
-        ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+        // ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
         FormsModule,
         HttpClientModule,
         TranslateModule.forRoot(),
