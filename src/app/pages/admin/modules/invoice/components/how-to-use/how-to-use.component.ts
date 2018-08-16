@@ -1,5 +1,11 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewEncapsulation, ElementRef } from '@angular/core';
 
+import { EditComponent } from '../../../../../../core/edit.component';
+import { HowToUse } from '../../models/how-to-use.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HowToUseService } from '../../services/how-to-use.service';
+import { HowToUseStep } from '../../models/enum';
+
 
 @Component({
     selector: 'how-to-use',
@@ -7,7 +13,7 @@ import { Component, OnInit, OnDestroy, AfterViewInit, ViewEncapsulation, Element
     templateUrl: './how-to-use.component.html',
     encapsulation: ViewEncapsulation.None,
 })
-export class HowToUseComponent implements OnInit, OnDestroy, AfterViewInit {
+export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit, OnDestroy, AfterViewInit {
 
     /** define si esta habilitado el modal */
     public enableModal: boolean;
@@ -15,14 +21,29 @@ export class HowToUseComponent implements OnInit, OnDestroy, AfterViewInit {
     /** activa el control de la salida del modal */
     public outModal: boolean;
 
-    constructor(private el: ElementRef) { 
+    /** formulario contiene errores */
+    hasError: boolean;
+
+    /** paso actual del wizard */
+    currentStep: HowToUseStep;
+
+    /** enumerativo de pasos */
+    step = HowToUseStep;
+
+    /** porciento completado */
+    percent: number;
+
+    constructor(
+        protected route: ActivatedRoute, protected router: Router,
+        protected serv: HowToUseService, private el: ElementRef
+    ) {
+        super(route, router, serv, new HowToUse());
+
         this.enableModal = false;
         this.outModal = false;
+        this.currentStep = HowToUseStep.Zero;
+        this.percent = 0;
     }
-
-    ngOnInit(): void { }
-
-    ngOnDestroy(): void { }
 
     ngAfterViewInit(): void { 
         // https://medium.com/claritydesignsystem/four-ways-of-listening-to-dom-events-in-angular-part-1-event-binding-3ec7e9f51a1d
@@ -35,9 +56,6 @@ export class HowToUseComponent implements OnInit, OnDestroy, AfterViewInit {
                this.enableModal = true;
             //    input.classList.toggle('active');
            });
-        //    input.addEventListener('blur', () => {
-        //        input.removeAttribute('placeholder');
-        //    });
        });
     }
 
@@ -49,5 +67,90 @@ export class HowToUseComponent implements OnInit, OnDestroy, AfterViewInit {
         setTimeout(() => {
             this.outModal = false;
         }, 800);
+    }
+
+    /** Enviar datos al servidor */
+    public onSubmit() {
+        this.formSubmitAttempt = true;
+        this.hasError = false;
+
+        if (this.form.valid) {
+            /** */
+        } else {
+            this.hasError = true;
+            this.validateAllFormFields(this.form);
+        }
+    }
+
+    /** define el paso actual en la visualizacion */
+    public activeStep(step: HowToUseStep): boolean {
+        return this.currentStep == step;
+    }
+
+    /** prev step */
+    public prevStep(): void {
+        let step = HowToUseStep.Zero;
+
+        switch(this.currentStep) {
+            case HowToUseStep.One:
+                step = HowToUseStep.Zero;
+                break;
+            case HowToUseStep.Two:
+                step = HowToUseStep.One;
+                break;
+            case HowToUseStep.Three:
+                step = HowToUseStep.Two;
+                break;
+            case HowToUseStep.Four:
+                step = HowToUseStep.Three;
+                break;
+            case HowToUseStep.Five:
+                step = HowToUseStep.Four;
+                break;
+        }
+
+        if (this.percent > 0) this.percent -= 20;
+        this.currentStep = step;
+    }
+
+    /** next step */
+    public nextStep(): void {
+        let step = HowToUseStep.Zero;
+
+        switch(this.currentStep) {
+            case HowToUseStep.Zero:
+                step = HowToUseStep.One;
+                break;
+            case HowToUseStep.One:
+                step = HowToUseStep.Two;
+                break;
+            case HowToUseStep.Two:
+                step = HowToUseStep.Three;
+                break;
+            case HowToUseStep.Three:
+                step = HowToUseStep.Four;
+                break;
+            case HowToUseStep.Four:
+                step = HowToUseStep.Five;
+                break;
+        }
+
+        if (this.percent < 100) this.percent += 20;
+        this.currentStep = step;
+    }
+
+    /** deshabilita el btn anterior */
+    public prevDisabled(): boolean {
+        return this.currentStep == HowToUseStep.Zero;
+    }
+
+    /** deshabilita el btn siguiente */
+    public nextDisabled(): boolean {
+        return this.currentStep == HowToUseStep.Five;
+    }
+
+    /** habilita el btn descargar */
+    public downloadBtn(): boolean {
+        return this.currentStep == HowToUseStep.Five;
     }
 }

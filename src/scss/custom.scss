@@ -90,6 +90,10 @@ a {
 
 /** END - form */
 
+.c100.green .bar, .c100.green .fill {
+    border-color: white !important;
+}
+
 @media (min-width: 1200px) {
     .container {
         max-width: 1080px;

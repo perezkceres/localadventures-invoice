@@ -13,6 +13,7 @@ import { HowToUseComponent } from './components/how-to-use/how-to-use.component'
 import { InsertInvoiceComponent } from './components/insert-invoice/insert-invoice.component';
 import { InvoiceService } from './services/invoice.service';
 import { FaqService } from './services/faq.service';
+import { HowToUseService } from './services/how-to-use.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { FaqService } from './services/faq.service';
 
         AdminInvoiceRoutingModule,
     ],
-    providers: [InvoiceService, FaqService]
+    providers: [InvoiceService, FaqService, HowToUseService]
 })
 export class InvoiceModule {
     constructor() { }
