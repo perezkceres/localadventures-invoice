@@ -5,7 +5,19 @@
     background-color: white;
 }
 
+a {
+    color: #ff4c1f;
+
+    &:hover {
+        color: #ff3300;
+    }
+}
+
 /** BEGIN - form */
+
+.btn, .btn-lg {
+    border-radius: 0;
+}
 
 .form-control {
     font-size: 0.9em;
@@ -108,7 +120,7 @@
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #425b76; 
+    background: #6f757a; 
 }
 
 /* Handle on hover */
