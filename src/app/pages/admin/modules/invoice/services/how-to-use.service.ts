@@ -38,6 +38,7 @@ export class HowToUseService extends ModelService<HowToUse> {
                 case "phone":
                 case "company":
                 case "employees":
+                case "hasServices":
                     validations = Validators.required;
                     break;
                 case "email":
@@ -79,9 +80,12 @@ export class HowToUseService extends ModelService<HowToUse> {
             email: {
                 required: 'Email required',
             },
-            employees: {
-                required: 'Employees required',
-            },
+            // employees: {
+            //     required: 'Employees required',
+            // },
+            // hasServices: {
+            //     required: 'Services required',
+            // },
         };
     }
 }

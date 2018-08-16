@@ -50,6 +50,12 @@
                 -webkit-box-align: center;
                 align-items: end;
             }
+            .modal-form-step-1 {
+                a {
+                    text-decoration: underline;
+                    color: white;
+                }
+            }
             .modal-form-step-0,
             .modal-form-step-1,
             .modal-form-step-2,

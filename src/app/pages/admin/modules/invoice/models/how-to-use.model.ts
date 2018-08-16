@@ -10,6 +10,7 @@ export interface IHowToUse extends IBase {
     company: string;
     website: string;
     employees: string;
+    hasServices: string;
 }
 
 export class HowToUse extends Base implements IHowToUse {
@@ -20,6 +21,7 @@ export class HowToUse extends Base implements IHowToUse {
     company: string;
     website: string;
     employees: string;
+    hasServices: string;
 
     constructor(options?: IHowToUse) {
         super();
@@ -36,7 +38,8 @@ export class HowToUse extends Base implements IHowToUse {
             phone: null,
             company: null,
             website: null,
-            employees: null,
+            employees: '1',
+            hasServices: 'No',
         };
     }
 } 

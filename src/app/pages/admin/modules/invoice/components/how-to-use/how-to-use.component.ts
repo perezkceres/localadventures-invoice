@@ -33,6 +33,12 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
     /** porciento completado */
     percent: number;
 
+    /** la empresa brinda servicios? */
+    servicesList: Array<string> = ['Yes', 'No'];
+
+    /** cantidad de empleados */
+    employeesList: Array<string> = ['1', '2 to 5', '6 to 10', '11 to 25', '26 to 50', '51 to 200', '201 to 1,000', '1,001 to 10,000', '10,001 or more'];
+
     constructor(
         protected route: ActivatedRoute, protected router: Router,
         protected serv: HowToUseService, private el: ElementRef

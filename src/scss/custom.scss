@@ -19,6 +19,37 @@ a {
     border-radius: 0;
 }
 
+.custom-control {
+    .custom-control-label {
+        cursor: pointer;
+
+        &:before {
+            background-color: #a2dada;
+        }
+    }
+    
+    &.custom-control-block {
+        padding-left: 1em;
+        margin-right: 1em;
+
+        .custom-control-label {
+            &:before {
+                top: 1.8rem;
+                left: 50%;
+            }
+            &:after {
+                top: 1.8rem;
+                left: 50%;
+            }
+        }
+    }
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before {
+    background-color: #007a8a;
+}
+
+
 .form-control {
     font-size: 0.9em;
     color: #2d3e50;

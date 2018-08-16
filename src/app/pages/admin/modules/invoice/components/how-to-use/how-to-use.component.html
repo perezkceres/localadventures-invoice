@@ -72,9 +72,12 @@
                 <div class="modal-form-step modal-form-step-4" [ngClass]="{'modal-form-step-enable': activeStep(step.Four)}">
                     <h4 class="modal-form-step-title">How many employees work there?</h4>
                     
-                    <div class="form-row">
+                    <div class="form-row mt-5">
                         <div class="form-group col-12">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, nemo. Dolore atque beatae officiis reprehenderit totam tempore quisquam, architecto culpa veniam quo magnam illum nemo, tenetur voluptatum animi hic velit?</p>
+                            <div class="custom-control custom-radio custom-control-inline custom-control-block" *ngFor="let el of employeesList">
+                                <input type="radio" id="how-to-use.employees.{{el}}" [value]="el" formControlName="employees" class="custom-control-input">
+                                <label class="custom-control-label" for="how-to-use.employees.{{el}}">{{ el }}</label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,9 +85,17 @@
                 <div class="modal-form-step modal-form-step-5" [ngClass]="{'modal-form-step-enable': activeStep(step.Five)}">
                     <h4 class="modal-form-step-title">Does your company provide any of the following services?</h4>
                     
-                    <div class="form-row">
-                        <div class="form-group col-12">
+                    <div class="row">
+                        <div class="col-12">
                             <div class="company-following-services"><span>Web Design</span><span>Online Marketing</span><span>SEO/SEM</span><span>Advertising Agency Services</span></div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="form-group col-12">
+                            <div class="custom-control custom-radio custom-control-inline" *ngFor="let sl of servicesList">
+                                <input type="radio" id="how-to-use.hasServices.{{sl}}" [value]="sl" formControlName="hasServices" class="custom-control-input">
+                                <label class="custom-control-label" for="how-to-use.hasServices.{{sl}}">{{ sl }}</label>
+                            </div>
                         </div>
                     </div>
                 </div>
