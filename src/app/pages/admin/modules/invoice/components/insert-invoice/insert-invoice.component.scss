@@ -325,8 +325,6 @@
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) { 
     .jumbotron.jumbotron-invoice {
-        padding: 0 0 1.5em 0;
-
         & > .container {
             max-width: 100%;
             padding-left: 0;
@@ -341,6 +339,8 @@
 
 @media (max-width: 810px) { 
     .jumbotron.jumbotron-invoice {
+        padding: 0 0 1.5em 0;
+        
         .invoice-wrapper-footer {
             padding-right: 4em;
 

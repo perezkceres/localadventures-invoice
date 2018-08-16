@@ -3,4 +3,12 @@
         background-image: linear-gradient(to right, $primary-color, $secundary-color);
         color: $header-text-color;
     }
+    .app-shell-footer {
+        color: $header-text-color;
+        background-color: $percent-money-color;
+
+        a, a:hover {
+            color: $header-text-color;
+        }
+    }
 }

@@ -9,7 +9,11 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef, ViewEncapsulation } fr
 })
 export class ShellAuthComponent implements OnInit, OnDestroy {
 
-    constructor(changeDetectorRef: ChangeDetectorRef) { }
+    today: Date;
+
+    constructor(changeDetectorRef: ChangeDetectorRef) { 
+        this.today = new Date();
+    }
 
     public ngOnInit(): void { }
 
