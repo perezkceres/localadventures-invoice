@@ -142,4 +142,15 @@
         }
     }
     /** END - insert invoice */
+
+    .c100 {
+        background-color: #14c0c1;
+
+        &:after {
+            background-color: #00adb5;
+        }
+        &.green:hover > span {
+            color: white;
+        }
+    }
 }
