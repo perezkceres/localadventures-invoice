@@ -24,3 +24,22 @@ app-shell-auth {
         }
     }
 }
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { 
+    app-shell-auth {
+        .navbar-header-auth {
+            .container {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;                
+
+                h2 {
+                    text-align: center;
+                }
+                & > .d-flex {
+                    display: block!important;
+                }
+            }
+        }
+    }
+}

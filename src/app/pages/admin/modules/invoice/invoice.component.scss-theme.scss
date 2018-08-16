@@ -83,7 +83,7 @@
         }
     
         .wrapper-comment {
-            border-color: $total-separator-color;
+            border-color: $comment-border-color;
     
             p {
                 color: $total-separator-color;
@@ -125,6 +125,20 @@
         .submit-error {
             color: $header-text-color;
             background-color: $error-color
+        }
+    }
+
+    @media (max-width: 575.98px) { 
+        .invoice-wrapper {
+            .wrapper-comment {
+                background-color: $comment-background-color;
+
+                textarea {
+                    &:focus {
+                        background-color: transparent;
+                    }
+                }
+            }
         }
     }
     /** END - insert invoice */
