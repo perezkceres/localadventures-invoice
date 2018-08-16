@@ -1,7 +1,7 @@
 {
   "name": "Localadventures Invoice PWA",
   "short_name": "localadventures-invoice",
-  "theme_color": "#1976d2",
+  "theme_color": "#ff8059",
   "background_color": "#fafafa",
   "display": "fullscreen",
   "scope": "/",
