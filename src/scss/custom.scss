@@ -90,6 +90,16 @@ a {
 
 /** END - form */
 
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1080px;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}
+
+/** ANIMACIONES Y PERSONALIZACIONES */
+
 @-webkit-keyframes backgroundHeaderAnimation {
     0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
 }
@@ -98,12 +108,11 @@ a {
     0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
 }
 
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1080px;
-        padding-right: 2rem;
-        padding-left: 2rem;
-    }
+@keyframes blowUpModal {
+    0% { transform:scale(0); } 100% { transform:scale(1); }
+}
+@keyframes blowUpModalTwo { 
+    0% { transform:scale(1.2); } 100% { transform:scale(1); }
 }
 
 
