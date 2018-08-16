@@ -1,8 +1,8 @@
 <form id="invoice-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
     <div class="invoice-wrapper">
-        <div class="d-flex w-100">
+        <div class="d-sm-flex w-100">
 
-            <div class="col-6">
+            <div class="col-12 col-sm-6">
                 <h2 class="invoice-title">Invoice</h2>
                 <div formGroupName="company">
                     <div class="form-group" [ngClass]="displayFieldCss('company.name')">
@@ -50,9 +50,9 @@
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-12 col-sm-6">
                 <div class="d-flex align-items-end flex-column" style="height: 100%;">
-                    <div class="wrapper-logo-company p-2" [ngClass]="{'logo-company-empty': logoBase64 === null}">
+                    <div class="wrapper-logo-company p-sm-2" [ngClass]="{'logo-company-empty': logoBase64 === null}">
                         <span class="upload-logo-company-text">
                             <span>Drag &amp; drop a logo file or click to upload</span>
                             <span>Drag &amp; drop a logo</span>
@@ -143,8 +143,8 @@
         <div class="d-sm-flex w-100 mt-4 mt-sm-5">
             <div class="col-12 col-sm-6">
                 <div class="form-group wrapper-comment" [ngClass]="displayFieldCss('comment')">
-                    <p for="comment" class="text-center mb-1">Notes:</p>
-                    <textarea class="form-control invoice-highlight text-center" placeholder="Any additional comments" name="comment" formControlName="comment"></textarea>
+                    <p for="comment" class="text-sm-center mb-1">Notes:</p>
+                    <textarea class="form-control invoice-highlight text-sm-center" placeholder="Any additional comments" name="comment" formControlName="comment"></textarea>
                 </div>
             </div>
             <div class="col-12 col-sm-6 mt-3 mt-sm-0 wrapper-resumen">

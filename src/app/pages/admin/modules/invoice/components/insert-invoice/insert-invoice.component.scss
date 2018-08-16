@@ -19,6 +19,7 @@
         position: relative;
         width: 60%;
         max-width: 60%;
+        max-height: 150px;
         display: flex;
         transition: transform .3s;
         margin-left: auto;
@@ -51,7 +52,6 @@
         img {
             margin-left: auto;
             max-width: 100%;
-            max-height: 150px;
         }
 
         &.logo-company-empty {
@@ -77,8 +77,8 @@
             justify-content: flex-end;
 
             .form-control {
-                width: 30%;
-                min-width: 80px;
+                width: 90px;
+                // min-width: 80px;
                 font-size: 1em;
                 font-weight: 500;
                 text-align: right;
@@ -312,69 +312,12 @@
     }
 }
 
-// Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575.98px) { 
-    .invoice-wrapper {
-        .wrapper-invoice-data {
-            .invoice-data-row {
-                .form-control {
-                    &.form-control-label {
-                        width: inherit;
-                    }
-                }
-            }
-        }
-    }
 
-    .jumbotron.jumbotron-invoice {
-        .invoice-wrapper-footer {
-            padding-right: 3em;
+/** ---- */
 
-            .submit-error {
-                right: 55px;
-            }
-        }
-    }
-}
 
-@media (max-width: 650px) { 
-    .invoice-wrapper {
-        padding-left: 1.5em;
-        padding-right: 1.5em;
-    }
-}
-
-@media (max-width: 720px) { 
-    .invoice-wrapper {
-        .wrapper-logo-company {
-            .upload-logo-company-text {
-                width: 95%;
-
-                span:first-child {
-                    display: none;
-                }
-                span:last-child {
-                    display: block;
-                }
-            }
-        }
-    }
-}
-
-// Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) { }
-
-@media (max-width: 810px) { 
-    .jumbotron.jumbotron-invoice {
-        .invoice-wrapper-footer {
-            padding-right: 4em;
-
-            .submit-error {
-                right: 55px;
-            }
-        }
-    }
-}
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { }
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) { 
@@ -393,5 +336,85 @@
     }
 }
 
-// Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) { }
+@media (max-width: 810px) { 
+    .jumbotron.jumbotron-invoice {
+        .invoice-wrapper-footer {
+            padding-right: 4em;
+
+            .submit-error {
+                right: 55px;
+            }
+        }
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { }
+
+@media (max-width: 720px) { 
+    .invoice-wrapper {
+        .wrapper-logo-company {
+            .upload-logo-company-text {
+                width: 95%;
+
+                span:first-child {
+                    display: none;
+                }
+                span:last-child {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) { 
+    .invoice-wrapper {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { 
+    .invoice-wrapper {
+        .wrapper-invoice-data {
+            .invoice-data-row {
+                .form-control {
+                    &.form-control-label {
+                        width: inherit;
+                    }
+                }
+            }
+        }
+
+        .wrapper-logo-company {
+            position: absolute;
+            top: -430px;
+            right: 12px;
+            width: 110px;
+            max-height: 110px;
+
+            &.logo-company-empty {
+                padding: .5rem;
+                width: 150px;
+                right: -20px;
+            }
+        }
+
+        .wrapper-comment {
+            border-radius: 0;
+            border: 0;
+        }
+    }
+
+    .jumbotron.jumbotron-invoice {
+        .invoice-wrapper-footer {
+            padding-right: 2.3em;
+
+            .submit-error {
+                right: 25px;
+            }
+        }
+    }
+}

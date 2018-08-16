@@ -127,5 +127,19 @@
             background-color: $error-color
         }
     }
+
+    @media (max-width: 575.98px) { 
+        .invoice-wrapper {
+            .wrapper-comment {
+                background-color: $comment-background-color;
+
+                textarea {
+                    &:focus {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
     /** END - insert invoice */
 }
