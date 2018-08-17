@@ -12,6 +12,10 @@
     padding-top: 1rem;
 }
 
+body.how-to-use-modal-open {
+    overflow: hidden;
+}
+
 @media (min-width: 1200px) {
     .section-2 {
         .container {

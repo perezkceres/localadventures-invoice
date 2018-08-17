@@ -16,11 +16,76 @@
         border-color: $highlight-color;
     }
 
+    /** BEGIN - faq */
+    .faq-list {
+        dt {
+            background: $faq-background-dt;
+
+            .faq-title {
+                color: $faq-color-title;
+            }
+
+            &.faq-open {
+                & + dd {
+                    background: $faq-background-dd;
+                }
+            }
+        }
+    }
+    /** END - faq */
+
     /** BEGIN - how to use */
     .wrapper-who-you-are {
+        .modal-container {
+            .modal-form {
+                .btn-close {
+                    color: $header-text-color;
+                }
+                .modal-form-step-1 {
+                    a {
+                        color: $header-text-color;
+                    }
+                }
+                .modal-form-step-6 {
+                    p {
+                        color: $header-text-color;
+    
+                        a {
+                            color: $header-text-color;
+                        }
+                    }
+    
+                    button {
+                        &:hover {
+                            color: $form-primary;
+                        }
+                    }
+                }
+
+                .company-following-services {
+                    color: $header-text-color;
+                }
+
+                .modal-form-footer {
+                    .btn {
+                        color: $form-primary;
+                    }
+                }
+            }
+
+            &.modal-form-open { 
+                .modal-form-background {
+                    background:rgba(0,0,0,.7);
+                }
+            }
+        }
         .form-control {
             color: $form-control-color;
             background-color: rgba(255, 255, 255, .9);
+
+            &.ng-invalid.ng-touched {
+                box-shadow: inset #f3c1c1 1px 1px 8px 2px;
+            }
         }
     }
     /** END - how to use */
@@ -142,4 +207,15 @@
         }
     }
     /** END - insert invoice */
+
+    .c100 {
+        background-color: #14c0c1;
+
+        &:after {
+            background-color: #00adb5;
+        }
+        &.green:hover > span {
+            color: white;
+        }
+    }
 }

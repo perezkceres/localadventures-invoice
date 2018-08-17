@@ -7,14 +7,18 @@
 @import "scss/base/reset";
 @import "scss/base/variables";
 
-// fuentes generales que se van a utilizar en el sistema
-@import "scss/fonts.scss";
+// disennos de los circulos
+// @import "scss/circle";
+@import "assets/css/circle.css";
 
-// personalizacion de cada tema
-@import "theme/default";
+// fuentes generales que se van a utilizar en el sistema
+@import "scss/fonts";
 
 // personalizacion general de la app para todos los temas definidos
 @import "scss/custom";
+
+// personalizacion de cada tema
+@import "theme/default";
 
 // personalizacion de los componentes de la app segun el tema
 @import 'app/core/components/shell-auth/shell-auth.component.scss-theme';
