@@ -126,7 +126,6 @@
             }
 
             .modal-form {
-                // display: flex;
                 left: 5vw;
                 top: 15vh;
                 width: 90vw;
@@ -143,6 +142,10 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+
+                    .c100.small {
+                        display: none;
+                    }
                 }
             }
 
@@ -157,13 +160,6 @@
                 max-height: 100%;
             }
             .modal-form {
-                // display: flex;
-                // left: 4vw;
-                // top: 14vh;
-                // width: 92vw;
-                // height: 72vh;
-                // position: fixed;
-
                 animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
             }
         }
@@ -183,8 +179,8 @@ body {
         .wrapper-who-you-are {
             .modal-container {
                 .modal-form {
-                    height: 140px;
-                    width: 140px;
+                    height: 100px;
+                    width: 100px;
                     left: 10px;
                     bottom: 10px;
                     z-index: 50;
@@ -201,6 +197,9 @@ body {
 
                         .c100 {
                             margin-top: 10px;
+                            &.standard {
+                                display: none;
+                            }
                         }
 
                         .btn {

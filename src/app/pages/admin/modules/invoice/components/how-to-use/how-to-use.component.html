@@ -115,13 +115,22 @@
             </div>
             <div class="modal-form-footer">
                 <button type="button" [disabled]="prevDisabled()" (click)="prevStep()" class="btn btn-light btn-sm"><i class="fas fa-chevron-left"></i></button>
-                <div class="c100 p{{percent}} green">
+                
+                <div class="c100 p{{percent}} standard green">
                     <span>{{ percent }}%</span>
                     <div class="slice">
                         <div class="bar"></div>
                         <div class="fill"></div>
                     </div>
                 </div>
+                <div class="c100 p{{ percent }} small green">
+                    <span>{{ percent }}%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+
                 <button type="button" *ngIf="!downloadBtn()" [disabled]="nextDisabled()" (click)="nextStep()" class="btn btn-light btn-sm"><i class="fas fa-chevron-right"></i></button>
                 <button type="submit" *ngIf="downloadBtn()" class="btn btn-light btn-sm"><i class="fas fa-cloud-download-alt"></i></button>
             </div>
