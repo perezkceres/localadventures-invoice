@@ -373,3 +373,31 @@ body {
         }
     }
 }
+
+@media (max-height: 415px) and (orientation:landscape) {
+    .wrapper-who-you-are .modal-container.modal-form-open .modal-form {
+        min-height: 330px;
+    }
+
+    .wrapper-who-you-are .modal-container.modal-form-open .modal-form .modal-form-footer {
+        .c100 {
+            &.small {
+                display: block;
+            }
+            &.standard {
+                display: none;
+            }
+        }
+    }
+
+    .wrapper-who-you-are .modal-container .modal-form .modal-last-step {
+        margin-top: -60px;
+    }
+
+    .wrapper-who-you-are .modal-container .modal-form .modal-form-step-6 button {
+        padding: 1rem 2rem;
+        outline: none;
+        font-size: 1.2rem;
+        margin-top: 1rem!important;
+    }
+}
