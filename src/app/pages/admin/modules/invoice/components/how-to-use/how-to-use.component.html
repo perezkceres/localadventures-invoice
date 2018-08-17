@@ -22,11 +22,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="how-to-use.name">First Name</label>
-                                    <input type="text" class="form-control text-center" id="how-to-use.name" formControlName="name" placeholder="John">
+                                    <input type="text" tabindex="-1" class="form-control text-center" id="how-to-use.name" formControlName="name" placeholder="John">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="how-to-use.lastName">Last Name</label>
-                                    <input type="text" class="form-control text-center" id="how-to-use.lastName" formControlName="lastName" placeholder="Smith">
+                                    <input type="text" tabindex="-1" class="form-control text-center" id="how-to-use.lastName" formControlName="lastName" placeholder="Smith">
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                 <div class="form-group col-xs-12 col-sm-6">
                                     <label class="float-left" for="how-to-use.email">Email Address</label>
                                     <a class="float-right" href="https://legal.hubspot.com/privacy-policy" target="_blank">Privacy Policy</a>
-                                    <input type="text" class="form-control" id="how-to-use.email" formControlName="email" placeholder="johnsmith@mail.com">
+                                    <input type="text" tabindex="-1" class="form-control" id="how-to-use.email" formControlName="email" placeholder="johnsmith@mail.com">
                                 </div>
                                 <div class="col-3 hidden-xs">&nbsp;</div>
                             </div>
@@ -56,7 +56,7 @@
                                 <div class="col-3 hidden-xs">&nbsp;</div>
                                 <div class="form-group col-xs-12 col-sm-6">
                                     <label for="how-to-use.phone">Phone Number</label>
-                                    <input type="text" class="form-control text-center" id="how-to-use.phone" formControlName="phone" placeholder="123 456 7890">
+                                    <input type="text" tabindex="-1" class="form-control text-center" id="how-to-use.phone" formControlName="phone" placeholder="123 456 7890">
                                 </div>
                                 <div class="col-3 hidden-xs">&nbsp;</div>
                             </div>
@@ -70,11 +70,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="how-to-use.company">Company</label>
-                                    <input type="text" class="form-control text-center" id="how-to-use.company" formControlName="company" placeholder="Hubspot">
+                                    <input type="text" tabindex="-1" class="form-control text-center" id="how-to-use.company" formControlName="company" placeholder="Hubspot">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="how-to-use.website">Website</label>
-                                    <input type="text" class="form-control text-center" id="how-to-use.website" formControlName="website" placeholder="www.hubspot.com">
+                                    <input type="text" tabindex="-1" class="form-control text-center" id="how-to-use.website" formControlName="website" placeholder="www.hubspot.com">
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                             <div class="form-row mt-5">
                                 <div class="form-group col-12">
                                     <div class="custom-control custom-radio custom-control-inline custom-control-block" *ngFor="let el of employeesList">
-                                        <input type="radio" id="how-to-use.employees.{{el}}" [value]="el" formControlName="employees" class="custom-control-input">
+                                        <input type="radio" tabindex="-1" id="how-to-use.employees.{{el}}" [value]="el" formControlName="employees" class="custom-control-input">
                                         <label class="custom-control-label" for="how-to-use.employees.{{el}}">{{ el }}</label>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                             <div class="form-row mt-4">
                                 <div class="form-group col-12">
                                     <div class="custom-control custom-radio custom-control-inline" *ngFor="let sl of servicesList">
-                                        <input type="radio" id="how-to-use.hasServices.{{sl}}" [value]="sl" formControlName="hasServices" class="custom-control-input">
+                                        <input type="radio" tabindex="-1" id="how-to-use.hasServices.{{sl}}" [value]="sl" formControlName="hasServices" class="custom-control-input">
                                         <label class="custom-control-label" for="how-to-use.hasServices.{{sl}}">{{ sl }}</label>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <p>We're committed to your privacy. HubSpot uses the information you provide to us to contact you about our relevant content, products, and services. You may unsubscribe from these communications at any time. For more information, check out our <a href="https://legal.hubspot.com/privacy-policy">Privacy Policy</a></p>
-                                    <button type="button" class="btn btn-outline-light mt-5"><i class="fas fa-cloud-download-alt"></i>&nbsp;&nbsp;&nbsp;Get Your Free Templates!</button>
+                                    <button type="button" tabindex="-1" class="btn btn-outline-light mt-5"><i class="fas fa-cloud-download-alt"></i>&nbsp;&nbsp;&nbsp;Get Your Free Templates!</button>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                 </div>
             </div>
             <div class="modal-form-footer" [ngClass]="{'d-none': activeStep(step.Six)}">
-                <button type="button" [disabled]="prevDisabled()" (click)="prevStep()" class="btn btn-light btn-sm"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" tabindex="-1" [disabled]="prevDisabled()" (click)="prevStep()" class="btn btn-light btn-sm"><i class="fas fa-chevron-left"></i></button>
                 
                 <div class="c100 p{{percent}} standard green">
                     <span>{{ percent }}%</span>
@@ -145,8 +145,8 @@
                     </div>
                 </div>
 
-                <button type="button" *ngIf="!downloadBtn()" [disabled]="nextDisabled()" (click)="nextStep()" class="btn btn-light btn-sm"><i class="fas fa-chevron-right"></i></button>
-                <button type="button" *ngIf="downloadBtn()" (click)="nextStep()" class="btn btn-light btn-sm"><i class="fas fa-check"></i></button>
+                <button type="button" tabindex="-1" *ngIf="!downloadBtn()" [disabled]="nextDisabled()" (click)="nextStep()" class="btn btn-light btn-sm"><i class="fas fa-chevron-right"></i></button>
+                <button type="button" tabindex="-1" *ngIf="downloadBtn()" (click)="nextStep()" class="btn btn-light btn-sm"><i class="fas fa-check"></i></button>
             </div>
         </form>
     </div>
