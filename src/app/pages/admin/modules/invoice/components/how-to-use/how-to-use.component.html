@@ -7,10 +7,12 @@
 
 <div class="wrapper-who-you-are">
     <div class="modal-container form-steps" [ngClass]="{'modal-form-open': enableModal, 'out': outModal}">
-        <div class="modal-form-background" (click)="hideModal()"></div>
+        <div class="modal-form-background" (click)="hideModal($event)"></div>
         <div class="modal-form-header"></div>
         <form id="form-how-to-use" (click)="openModal()" class="modal-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
             <img src="/assets/img/free-template.png" class="modal-last-step" [ngClass]="{'d-none': !activeStep(step.Six)}" alt="Free Template" />
+            <button type="button" (click)="hideModal($event)" class="btn btn-link btn-close float-right"><i class="fas fa-times"></i></button>
+            
             <div class="modal-form-body">
                 <div class="modal-wizard-wrapper" [attr.step]="stepWrapper">
                     <div class="modal-form-step-wrapper">

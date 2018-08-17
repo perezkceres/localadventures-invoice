@@ -28,6 +28,15 @@
             margin: 0 auto;
             border-radius: .2rem;
 
+            .btn-close {
+                color: #fff;
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                z-index: 60;
+                display: none;
+            }
+
             .modal-last-step {
                 margin-top: -75px;
                 margin-bottom: 15px;
@@ -167,6 +176,10 @@
                 position: fixed;
 
                 animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+
+                .btn-close {
+                    display: block;
+                }
 
                 .modal-form-body {
                     height: auto;

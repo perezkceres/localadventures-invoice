@@ -98,7 +98,10 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
     }
 
     /** oculta el modal */
-    public hideModal() {
+    public hideModal(e: Event) {
+        e.preventDefault();
+        e.stopPropagation();
+        
         this.enableModal = false;
         this.outModal = true;
 
