@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ViewEncapsulation, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewEncapsulation, ElementRef, Renderer2, HostListener, Inject, HostBinding } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { EditComponent } from '../../../../../../core/edit.component';
 import { HowToUse } from '../../models/how-to-use.model';
-import { ActivatedRoute, Router } from '@angular/router';
 import { HowToUseService } from '../../services/how-to-use.service';
 import { HowToUseStep } from '../../models/enum';
 
@@ -42,7 +43,8 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
     constructor(
         protected route: ActivatedRoute, protected router: Router,
         protected serv: HowToUseService, private el: ElementRef,
-        private renderer: Renderer2
+        private renderer: Renderer2,
+        @Inject(DOCUMENT) private document: Document
     ) {
         super(route, router, serv, new HowToUse());
 
@@ -57,13 +59,36 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
         // https://stackoverflow.com/questions/37247246/html5-event-handlingonfocus-and-onfocusout-using-angular-2
 
         // document.getElementsByTagName('input') : to gell all Docuement imputs
-       const inputList = [].slice.call((<HTMLElement>this.el.nativeElement).getElementsByTagName('input'));
-       inputList.forEach((input: HTMLElement) => {
-           input.addEventListener('focus', () => {
-               this.enableModal = true;
-               this.renderer.addClass(document.body, 'how-to-use-modal-open');
-           });
-       });
+    //    const inputList = [].slice.call((<HTMLElement>this.el.nativeElement).getElementsByTagName('input'));
+    //    inputList.forEach((input: HTMLElement) => {
+    //        input.addEventListener('focus', this.openModal);
+    //    });
+    }
+
+    @HostListener("window:scroll", [])
+    onWindowScroll() {
+        const forms = [].slice.call((<HTMLElement>this.el.nativeElement).getElementsByClassName('modal-container'));
+        forms.forEach((element: HTMLElement) => {
+            var rect = element.getBoundingClientRect();
+            // console.log(rect.top, rect.right, rect.bottom, rect.left);
+
+            let bottom = rect.top - window.innerHeight;
+            let top = rect.top + element.clientHeight;
+            console.log({'bottom': bottom, 'top': top});
+
+            // el valor 5 es para un aproximado
+            if (bottom <= 5 && top >= 5) { // aparecio por debajo
+                this.renderer.removeClass(document.body, 'how-to-use-modal-short');
+            } else if (top < 5 || bottom > 5) { // se fue por arriba o por debajo
+                this.renderer.addClass(document.body, 'how-to-use-modal-short');
+            }
+        });
+    }
+
+    /** muestra el modal grande */
+    public openModal() {
+        this.enableModal = true;
+        this.renderer.addClass(document.body, 'how-to-use-modal-open');
     }
 
     /** oculta el modal */
@@ -118,6 +143,8 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
         }
 
         if (this.percent > 0) this.percent -= 20;
+        if (this.percent == 100 || this.percent == 0) this.renderer.removeClass(document.body, 'how-to-use-modal-initialized');
+
         this.currentStep = step;
     }
 
@@ -144,6 +171,8 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
         }
 
         if (this.percent < 100) this.percent += 20;
+        if (this.percent > 0) this.renderer.addClass(document.body, 'how-to-use-modal-initialized');
+
         this.currentStep = step;
     }
 

@@ -178,6 +178,41 @@
     }
 }
 
+body {
+    &:not(.how-to-use-modal-open).how-to-use-modal-short.how-to-use-modal-initialized {
+        .wrapper-who-you-are {
+            .modal-container {
+                .modal-form {
+                    height: 140px;
+                    width: 140px;
+                    left: 10px;
+                    bottom: 10px;
+                    z-index: 50;
+                    cursor: pointer;
+                    position: fixed;
+
+                    animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+
+                    .modal-form-body {
+                        display: none;
+                    }
+                    .modal-form-footer {
+                        display: flex;
+
+                        .c100 {
+                            margin-top: 10px;
+                        }
+
+                        .btn {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) { 
     .wrapper-who-you-are {
