@@ -90,6 +90,7 @@
             .modal-form-step-3,
             .modal-form-step-6 {
                 width: 540px;
+                max-width: 90%;
             }
             .modal-form-step-6 {
                 p {
@@ -273,6 +274,53 @@ body {
 
                 .modal-form-step-6 {
                     width: 90%;
+                }
+            }
+        }
+    }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    body {
+        &:not(.how-to-use-modal-open) {
+            .modal-form-step-6 {
+                p {
+                    margin-top: 2rem;
+                }
+                button {
+                    margin-top: 1rem!important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 510px) {
+    .wrapper-who-you-are {
+        .modal-container {
+            &:not(.modal-form-open) {
+                .modal-form-step-0,
+                .modal-form-step-3, {
+                    max-width: 90%;
+                }
+            }
+        }
+    }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 425px) {
+    body {
+        &:not(.how-to-use-modal-open) {
+            .modal-form-step-6 {
+                p {
+                    margin-top: 1.5rem;
+                }
+                button {
+                    padding: 1em;
+                    font-size: 1em;
+                    margin-top: 0!important;
                 }
             }
         }
