@@ -159,4 +159,8 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
     public downloadBtn(): boolean {
         return this.currentStep == HowToUseStep.Five;
     }
+
+    public get stepWrapper(): number {
+        return this.currentStep;
+    }
 }
