@@ -1,47 +1,200 @@
 .wrapper-who-you-are {
     margin: 10em 0 2em 0;
 
-    .form-steps {
+    .modal-container {
         position: relative;
         height: 255px;
         min-height: 255px;
 
+        .modal-form-header {
+            position: absolute;
+            z-index: 15;
+            top: -128px;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            max-height: 100%;
+            background: url(https://cdn2.hubspot.net/hubfs/53/tools/Multi%20Step%20Form/offer.png) no-repeat;
+            background-position-x: 50%;
+
+            transition: max-height .3s, top .5s;
+        }
+
         .modal-form {
             position: relative;
             overflow-y: visible;
-            height: 255px;
-
-            margin: 0px auto;
+            height: 100%;
+            z-index: 20;
+            margin: 0 auto;
             border-radius: .2rem;
 
-            .modal-form-header {
+            .btn-close {
                 position: absolute;
-                opacity: 1;
-                top: -128px;
-                left: 0px;
-                width: 100%;
-                height: 50%;
-                max-height: 100%;
-                background: url(https://cdn2.hubspot.net/hubfs/53/tools/Multi%20Step%20Form/offer.png) no-repeat;
-                background-position-x: 50%;
+                right: 5px;
+                top: 5px;
+                z-index: 60;
+                display: none;
+            }
+
+            .modal-last-step {
+                margin-top: -75px;
+                margin-bottom: 15px;
             }
 
             .modal-form-body {
                 display: flex;
+                position: relative;
+                z-index: 30;
                 height: 100%;
                 width: 100%;
                 min-width: 100%;
                 -webkit-box-pack: center;
                 justify-content: center;
                 -webkit-box-align: center;
-                align-items: center;
+                align-items: end;
+                overflow: hidden;
+
+                .modal-wizard-wrapper {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-wrap: nowrap;
+
+                    transition: transform 0.3s ease-out;
+
+                    // loop to create all needed elements automatically
+                    @for $j from 0 through 7 {
+                        &[step="#{$j}"] {
+                            transform: translateX(-100% * $j);
+                        }
+                    }
+
+                    .modal-form-step-wrapper {
+                        display: flex;
+                        height: 100%;
+                        width: 100%;
+                        min-width: 100%;
+                        -webkit-box-pack: center;
+                        justify-content: center;
+                        -webkit-box-align: center;
+                    }
+                }
+            }
+            .modal-form-step {
+                min-height: 130px;
             }
             .modal-form-step-1 {
-                width: 60%;
-                min-height: 130px;
+                a {
+                    text-decoration: underline;
+                }
+            }
+            .modal-form-step-0,
+            .modal-form-step-1,
+            .modal-form-step-2,
+            .modal-form-step-3,
+            .modal-form-step-6 {
+                width: 540px;
+                max-width: 90%;
+            }
+            .modal-form-step-6 {
+                p {
+                    font-size: .75rem;
+                    line-height: 1.5;
+
+                    a {
+                        text-decoration: underline;
+                    }
+                }
+
+                button {
+                    padding: 1.5rem 2rem;
+                    outline: none;
+                    font-size: 1.2rem;
+
+                    &:focus {
+                        box-shadow: none;
+                        outline: none;
+                    }
+                }
             }
             .modal-form-step-title {
                 margin-bottom: 1em;
+                margin-top: 1.5em;
+            }
+
+            .company-following-services {
+                width: 100%;
+                display: flex;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                font-size: 1em;
+            }
+
+            .modal-form-footer {
+                display: none;
+
+                .btn {
+                    outline: 0;
+                    box-shadow: none;
+
+                    border-radius: 50%;
+                    width: 2.5em;
+                    height: 2.5em;
+                }
+            }
+        }
+
+        &.modal-form-open {
+            .modal-form-background {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 10;
+            }
+
+            .modal-form {
+                left: 5vw;
+                top: 15vh;
+                width: 90vw;
+                height: 65vh;
+                min-height: 380px;
+                position: fixed;
+
+                animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+
+                .btn-close {
+                    display: block;
+                }
+
+                .modal-form-body {
+                    height: auto;
+                    min-height: 235px;
+                }
+                .modal-form-footer {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .c100.small {
+                        display: none;
+                    }
+                }
+            }
+
+            .modal-form-header {
+                top: 0;
+                max-height: 0%;
+            }
+        }
+        &.out {
+            .modal-form-header {
+                top: -128px;
+                max-height: 100%;
+            }
+            .modal-form {
+                animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
             }
         }
     }
@@ -52,5 +205,136 @@
         border: none;
         padding: .375rem .75rem;
         border-radius: .25rem;
+    }
+}
+
+body {
+    &:not(.how-to-use-modal-open) {
+        .modal-last-step {
+            display: none;
+        }
+        .modal-form-step-6 {
+            p {
+                margin-top: 2.5rem;
+            }
+            button {
+                margin-top: 1.5rem!important;
+            }
+        }
+        &.how-to-use-modal-short.how-to-use-modal-initialized {
+            .wrapper-who-you-are {
+                .modal-container {
+                    .modal-form {
+                        height: 100px;
+                        width: 100px;
+                        left: 10px;
+                        bottom: 10px;
+                        z-index: 50;
+                        cursor: pointer;
+                        position: fixed;
+    
+                        animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    
+                        .modal-form-body {
+                            display: none;
+                        }
+                        .modal-form-footer {
+                            display: flex;
+    
+                            .c100 {
+                                margin-top: 10px;
+                                &.standard {
+                                    display: none;
+                                }
+                            }
+    
+                            .btn {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { 
+    .wrapper-who-you-are {
+        .modal-container {
+            &:not(.modal-form-open) {
+                .modal-form-step-0,
+                .modal-form-step-3, {
+                    width: auto;
+                }
+                .modal-form-step-1,
+                .modal-form-step-2 {
+                    width: inherit;
+                }
+
+                .modal-form-step-6 {
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    body {
+        &:not(.how-to-use-modal-open) {
+            .modal-form-step-6 {
+                p {
+                    margin-top: 2rem;
+                }
+                button {
+                    margin-top: 1rem!important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 510px) {
+    .wrapper-who-you-are {
+        .modal-container {
+            &.modal-form-open {
+                .modal-form {
+                    top: 14vh;
+                    height: 73vh;
+                }
+            }
+            &:not(.modal-form-open) {
+                .modal-form-step-0,
+                .modal-form-step-3, {
+                    max-width: 90%;
+                }
+            }
+        }
+    }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 425px) {
+    body {
+        &:not(.how-to-use-modal-open) {
+            .modal-form-step-6 {
+                p {
+                    margin-top: 1.5rem;
+                }
+                button {
+                    padding: 1em;
+                    font-size: 1em;
+                    margin-top: 0!important;
+                }
+            }
+        }
+    }
+
+    .wrapper-who-you-are .modal-container {
+        // height: 320px;
+        height: auto;
     }
 }

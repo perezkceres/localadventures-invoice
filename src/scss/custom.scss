@@ -19,6 +19,38 @@ a {
     border-radius: 0;
 }
 
+.custom-control {
+    .custom-control-label {
+        cursor: pointer;
+
+        &:before {
+            background-color: #a2dada;
+        }
+    }
+    
+    &.custom-control-block {
+        padding-left: 1em;
+        margin-right: 1em;
+        min-height: 3.5em;
+
+        .custom-control-label {
+            &:before {
+                top: 1.8rem;
+                left: 50%;
+            }
+            &:after {
+                top: 1.8rem;
+                left: 50%;
+            }
+        }
+    }
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before {
+    background-color: #007a8a;
+}
+
+
 .form-control {
     font-size: 0.9em;
     color: #2d3e50;
@@ -90,12 +122,8 @@ a {
 
 /** END - form */
 
-@-webkit-keyframes backgroundHeaderAnimation {
-    0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
-}
-
-@keyframes backgroundHeaderAnimation {
-    0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
+.c100.green .bar, .c100.green .fill {
+    border-color: white !important;
 }
 
 @media (min-width: 1200px) {
@@ -104,6 +132,23 @@ a {
         padding-right: 2rem;
         padding-left: 2rem;
     }
+}
+
+/** ANIMACIONES Y PERSONALIZACIONES */
+
+@-webkit-keyframes backgroundHeaderAnimation {
+    0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
+}
+
+@keyframes backgroundHeaderAnimation {
+    0% { background-position: 0% -100% } 100% { background-position: 0% 200% }
+}
+
+@keyframes blowUpModal {
+    0% { transform:scale(0); } 100% { transform:scale(1); }
+}
+@keyframes blowUpModalTwo { 
+    0% { transform:scale(1.2); } 100% { transform:scale(1); }
 }
 
 

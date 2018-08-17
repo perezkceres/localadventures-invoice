@@ -6,25 +6,148 @@
 <p>We’ve created 10 <a href="/">free invoice templates</a> for Microsoft Word to meet all of your invoicing needs. Simply fill out the form below to access the templates. The templates are fully editable and can be downloaded as a PDF to send off to your customers. These <a href="/">free invoice templates</a> come in a variety of colors and designs and are fully customizable, so you’re bound to find one that suits your brand. </p>
 
 <div class="wrapper-who-you-are">
-    <div class="form-steps">
-        <div class="modal-form">
-            <div class="modal-form-header"></div>
+    <div class="modal-container form-steps" [ngClass]="{'modal-form-open': enableModal, 'out': outModal}">
+        <div class="modal-form-background" (click)="hideModal($event)"></div>
+        <div class="modal-form-header"></div>
+        <form id="form-how-to-use" (click)="openModal()" class="modal-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+            <img src="/assets/img/free-template.png" class="modal-last-step" [ngClass]="{'d-none': !activeStep(step.Six)}" alt="Free Template" />
+            <button type="button" (click)="hideModal($event)" class="btn btn-link btn-close float-right"><i class="fas fa-times"></i></button>
+            
             <div class="modal-form-body">
-                <div class="modal-form-step-1">
-                    <h4 class="modal-form-step-title">Hi 👋  What's your name?</h4>
-                    
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="firstName">First Name</label>
-                            <input type="text" class="form-control text-center" id="firstName" placeholder="John">
+                <div class="modal-wizard-wrapper" [attr.step]="stepWrapper">
+                    <div class="modal-form-step-wrapper">
+                        <div class="modal-form-step modal-form-step-0" [ngClass]="{'modal-form-step-enable': activeStep(step.Zero)}">
+                            <h4 class="modal-form-step-title">Hi 👋  What's your name?</h4>
+                            
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="how-to-use.name">First Name</label>
+                                    <input type="text" class="form-control text-center" id="how-to-use.name" formControlName="name" placeholder="John">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="how-to-use.lastName">Last Name</label>
+                                    <input type="text" class="form-control text-center" id="how-to-use.lastName" formControlName="lastName" placeholder="Smith">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" class="form-control text-center" id="lastName" placeholder="Smith">
+                    </div>
+    
+                    <div class="modal-form-step-wrapper">
+                        <div class="modal-form-step modal-form-step-1" [ngClass]="{'modal-form-step-enable': activeStep(step.One)}">
+                            <h4 class="modal-form-step-title">Hi {{ form['controls'].name.value }}, what's your email address?</h4>
+                            
+                            <div class="form-row">
+                                <div class="col-3 hidden-xs">&nbsp;</div>
+                                <div class="form-group col-xs-12 col-sm-6">
+                                    <label class="float-left" for="how-to-use.email">Email Address</label>
+                                    <a class="float-right" href="https://legal.hubspot.com/privacy-policy" target="_blank">Privacy Policy</a>
+                                    <input type="text" class="form-control" id="how-to-use.email" formControlName="email" placeholder="johnsmith@mail.com">
+                                </div>
+                                <div class="col-3 hidden-xs">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="modal-form-step-wrapper">
+                        <div class="modal-form-step modal-form-step-2" [ngClass]="{'modal-form-step-enable': activeStep(step.Two)}">
+                            <h4 class="modal-form-step-title">And your phone number?</h4>
+                            
+                            <div class="form-row">
+                                <div class="col-3 hidden-xs">&nbsp;</div>
+                                <div class="form-group col-xs-12 col-sm-6">
+                                    <label for="how-to-use.phone">Phone Number</label>
+                                    <input type="text" class="form-control text-center" id="how-to-use.phone" formControlName="phone" placeholder="123 456 7890">
+                                </div>
+                                <div class="col-3 hidden-xs">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="modal-form-step-wrapper">
+                        <div class="modal-form-step modal-form-step-3" [ngClass]="{'modal-form-step-enable': activeStep(step.Three)}">
+                            <h4 class="modal-form-step-title">What is your company's name and website?</h4>
+                            
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="how-to-use.company">Company</label>
+                                    <input type="text" class="form-control text-center" id="how-to-use.company" formControlName="company" placeholder="Hubspot">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="how-to-use.website">Website</label>
+                                    <input type="text" class="form-control text-center" id="how-to-use.website" formControlName="website" placeholder="www.hubspot.com">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-form-step-wrapper">
+                        <div class="modal-form-step modal-form-step-4" [ngClass]="{'modal-form-step-enable': activeStep(step.Four)}">
+                            <h4 class="modal-form-step-title">How many employees work there?</h4>
+                            
+                            <div class="form-row mt-5">
+                                <div class="form-group col-12">
+                                    <div class="custom-control custom-radio custom-control-inline custom-control-block" *ngFor="let el of employeesList">
+                                        <input type="radio" id="how-to-use.employees.{{el}}" [value]="el" formControlName="employees" class="custom-control-input">
+                                        <label class="custom-control-label" for="how-to-use.employees.{{el}}">{{ el }}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="modal-form-step-wrapper">
+                        <div class="modal-form-step modal-form-step-5" [ngClass]="{'modal-form-step-enable': activeStep(step.Five)}">
+                            <h4 class="modal-form-step-title">Does your company provide any of the following services?</h4>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="company-following-services"><span>Web Design</span><span>Online Marketing</span><span>SEO/SEM</span><span>Advertising Agency Services</span></div>
+                                </div>
+                            </div>
+                            <div class="form-row mt-4">
+                                <div class="form-group col-12">
+                                    <div class="custom-control custom-radio custom-control-inline" *ngFor="let sl of servicesList">
+                                        <input type="radio" id="how-to-use.hasServices.{{sl}}" [value]="sl" formControlName="hasServices" class="custom-control-input">
+                                        <label class="custom-control-label" for="how-to-use.hasServices.{{sl}}">{{ sl }}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="modal-form-step-wrapper">
+                        <div class="modal-form-step modal-form-step-6" [ngClass]="{'modal-form-step-enable': activeStep(step.Six)}">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>We're committed to your privacy. HubSpot uses the information you provide to us to contact you about our relevant content, products, and services. You may unsubscribe from these communications at any time. For more information, check out our <a href="https://legal.hubspot.com/privacy-policy">Privacy Policy</a></p>
+                                    <button type="button" class="btn btn-outline-light mt-5"><i class="fas fa-cloud-download-alt"></i>&nbsp;&nbsp;&nbsp;Get Your Free Templates!</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="modal-form-footer" [ngClass]="{'d-none': activeStep(step.Six)}">
+                <button type="button" [disabled]="prevDisabled()" (click)="prevStep()" class="btn btn-light btn-sm"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="c100 p{{percent}} standard green">
+                    <span>{{ percent }}%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+                <div class="c100 p{{ percent }} small green">
+                    <span>{{ percent }}%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+
+                <button type="button" *ngIf="!downloadBtn()" [disabled]="nextDisabled()" (click)="nextStep()" class="btn btn-light btn-sm"><i class="fas fa-chevron-right"></i></button>
+                <button type="button" *ngIf="downloadBtn()" (click)="nextStep()" class="btn btn-light btn-sm"><i class="fas fa-check"></i></button>
+            </div>
+        </form>
     </div>
 </div>

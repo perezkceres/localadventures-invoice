@@ -9,6 +9,12 @@ $form-secundary: #00a4bd;
 $background-jumbotron: #f2f5f8;
 $highlight-color: #ff7a59;
 
+/** BEGIN - faq */
+$faq-background-dt: #d8d8d8;
+$faq-color-title: #545454;
+$faq-background-dd: #f7f7f7;
+/** END - faq */
+
 /** BEGIN - how to use */
 $form-control-color: #2d3e50;
 /** END - how to use */
@@ -21,3 +27,24 @@ $percent-money-color: #fd8f5f;
 $comment-border-color: #bdbdbd;
 $comment-background-color: #f1f1f1;
 /** END - insert invoice */
+
+/** BEGIN - circles */
+// $circle-width: 0.08em;
+// $circle-width-hover: 0.04em;
+
+// // colors default
+// $primary-color: #307bbb;
+// $secondary-color: #ccc;
+// $bg-color: #f5f5f5;
+
+// $primary-color-green: #4db53c;
+// $primary-color-orange: #dd9d22;
+
+// // colors dark skin
+// $primary-color-dark: #c6ff00;
+// $secondary-color-dark: #777;
+// $bg-color-dark: #666;
+
+// $primary-color-green-dark: #5fd400;
+// $primary-color-orange-dark: #e08833;
+/** END - circles */
