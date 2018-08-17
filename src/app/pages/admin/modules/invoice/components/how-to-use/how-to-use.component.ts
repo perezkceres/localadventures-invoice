@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ViewEncapsulation, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewEncapsulation, ElementRef, Renderer2 } from '@angular/core';
 
 import { EditComponent } from '../../../../../../core/edit.component';
 import { HowToUse } from '../../models/how-to-use.model';
@@ -41,7 +41,8 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
 
     constructor(
         protected route: ActivatedRoute, protected router: Router,
-        protected serv: HowToUseService, private el: ElementRef
+        protected serv: HowToUseService, private el: ElementRef,
+        private renderer: Renderer2
     ) {
         super(route, router, serv, new HowToUse());
 
@@ -60,7 +61,7 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
        inputList.forEach((input: HTMLElement) => {
            input.addEventListener('focus', () => {
                this.enableModal = true;
-            //    input.classList.toggle('active');
+               this.renderer.addClass(document.body, 'how-to-use-modal-open');
            });
        });
     }
@@ -70,6 +71,7 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
         this.enableModal = false;
         this.outModal = true;
 
+        this.renderer.removeClass(document.body, 'how-to-use-modal-open');
         setTimeout(() => {
             this.outModal = false;
         }, 800);
