@@ -82,6 +82,7 @@
             }
             .modal-form-step {
                 min-height: 130px;
+                max-width: 90%;
             }
             .modal-form-step-1 {
                 a {
@@ -94,7 +95,6 @@
             .modal-form-step-3,
             .modal-form-step-6 {
                 width: 540px;
-                max-width: 90%;
             }
             .modal-form-step-6 {
                 p {
@@ -336,5 +336,14 @@ body {
     .wrapper-who-you-are .modal-container {
         // height: 320px;
         height: auto;
+    }
+
+    .wrapper-who-you-are .modal-container .modal-form .company-following-services {
+        display: block;
+        justify-content: normal;
+
+        span {
+            display: block;
+        }
     }
 }
