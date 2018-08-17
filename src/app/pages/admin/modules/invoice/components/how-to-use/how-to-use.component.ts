@@ -59,10 +59,10 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
         // https://stackoverflow.com/questions/37247246/html5-event-handlingonfocus-and-onfocusout-using-angular-2
 
         // document.getElementsByTagName('input') : to gell all Docuement imputs
-    //    const inputList = [].slice.call((<HTMLElement>this.el.nativeElement).getElementsByTagName('input'));
-    //    inputList.forEach((input: HTMLElement) => {
-    //        input.addEventListener('focus', this.openModal);
-    //    });
+       const inputList = [].slice.call((<HTMLElement>this.el.nativeElement).getElementsByTagName('input'));
+       inputList.forEach((input: HTMLElement) => {
+           input.addEventListener('focus', this.openModal);
+       });
     }
 
     @HostListener("window:scroll", [])
