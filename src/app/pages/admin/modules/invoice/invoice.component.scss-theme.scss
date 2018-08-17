@@ -16,6 +16,24 @@
         border-color: $highlight-color;
     }
 
+    /** BEGIN - faq */
+    .faq-list {
+        dt {
+            background: $faq-background-dt;
+
+            .faq-title {
+                color: $faq-color-title;
+            }
+
+            &.faq-open {
+                & + dd {
+                    background: $faq-background-dd;
+                }
+            }
+        }
+    }
+    /** END - faq */
+
     /** BEGIN - how to use */
     .wrapper-who-you-are {
         .form-control {

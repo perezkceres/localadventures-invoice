@@ -15,14 +15,11 @@
         opacity: 0;
     }
     dt {
-        background: #d8d8d8; /** here */
-
         .faq-title {
             display: block;
             position: relative;
             cursor: pointer;
             padding: 1rem 1rem 1rem 2rem;
-            color: #545454; /** here */
 
             font-size: 1.3rem;
             line-height: 1.3125;
@@ -52,8 +49,6 @@
                 max-height: 100vh;
                 transform: translateY(0);
                 opacity: 1;
-
-                background: #f7f7f7; /** here */
             }
         }
     }
