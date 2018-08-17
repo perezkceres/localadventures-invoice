@@ -36,6 +36,49 @@
 
     /** BEGIN - how to use */
     .wrapper-who-you-are {
+        .modal-container {
+            .modal-form {
+                .btn-close {
+                    color: $header-text-color;
+                }
+                .modal-form-step-1 {
+                    a {
+                        color: $header-text-color;
+                    }
+                }
+                .modal-form-step-6 {
+                    p {
+                        color: $header-text-color;
+    
+                        a {
+                            color: $header-text-color;
+                        }
+                    }
+    
+                    button {
+                        &:hover {
+                            color: $form-primary;
+                        }
+                    }
+                }
+
+                .company-following-services {
+                    color: $header-text-color;
+                }
+
+                .modal-form-footer {
+                    .btn {
+                        color: $form-primary;
+                    }
+                }
+            }
+
+            &.modal-form-open { 
+                .modal-form-background {
+                    background:rgba(0,0,0,.7);
+                }
+            }
+        }
         .form-control {
             color: $form-control-color;
             background-color: rgba(255, 255, 255, .9);
