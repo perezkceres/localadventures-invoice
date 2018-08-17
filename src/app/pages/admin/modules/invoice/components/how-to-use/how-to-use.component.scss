@@ -28,6 +28,11 @@
             margin: 0 auto;
             border-radius: .2rem;
 
+            .modal-last-step {
+                margin-top: -75px;
+                margin-bottom: 15px;
+            }
+
             .modal-form-body {
                 display: flex;
                 position: relative;
@@ -53,7 +58,7 @@
                     transition: transform 0.3s ease-out;
 
                     // loop to create all needed elements automatically
-                    @for $j from 0 through 6 {
+                    @for $j from 0 through 7 {
                         &[step="#{$j}"] {
                             transform: translateX(-100% * $j);
                         }
@@ -82,8 +87,35 @@
             .modal-form-step-0,
             .modal-form-step-1,
             .modal-form-step-2,
-            .modal-form-step-3, {
+            .modal-form-step-3,
+            .modal-form-step-6 {
                 width: 540px;
+            }
+            .modal-form-step-6 {
+                p {
+                    font-size: .75rem;
+                    line-height: 1.5;
+                    color: #fff;
+
+                    a {
+                        color: #fff;
+                        text-decoration: underline;
+                    }
+                }
+
+                button {
+                    padding: 1.5rem 2rem;
+                    outline: none;
+                    font-size: 1.2rem;
+
+                    &:hover {
+                        color: #00bda5;
+                    }
+                    &:focus {
+                        box-shadow: none;
+                        outline: none;
+                    }
+                }
             }
             .modal-form-step-title {
                 margin-bottom: 1em;
@@ -129,7 +161,7 @@
                 left: 5vw;
                 top: 15vh;
                 width: 90vw;
-                height: 70vh;
+                height: 65vh;
                 position: fixed;
 
                 animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
@@ -175,35 +207,48 @@
 }
 
 body {
-    &:not(.how-to-use-modal-open).how-to-use-modal-short.how-to-use-modal-initialized {
-        .wrapper-who-you-are {
-            .modal-container {
-                .modal-form {
-                    height: 100px;
-                    width: 100px;
-                    left: 10px;
-                    bottom: 10px;
-                    z-index: 50;
-                    cursor: pointer;
-                    position: fixed;
-
-                    animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-
-                    .modal-form-body {
-                        display: none;
-                    }
-                    .modal-form-footer {
-                        display: flex;
-
-                        .c100 {
-                            margin-top: 10px;
-                            &.standard {
+    &:not(.how-to-use-modal-open) {
+        .modal-last-step {
+            display: none;
+        }
+        .modal-form-step-6 {
+            p {
+                margin-top: 2.5rem;
+            }
+            button {
+                margin-top: 1.5rem!important;
+            }
+        }
+        &.how-to-use-modal-short.how-to-use-modal-initialized {
+            .wrapper-who-you-are {
+                .modal-container {
+                    .modal-form {
+                        height: 100px;
+                        width: 100px;
+                        left: 10px;
+                        bottom: 10px;
+                        z-index: 50;
+                        cursor: pointer;
+                        position: fixed;
+    
+                        animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    
+                        .modal-form-body {
+                            display: none;
+                        }
+                        .modal-form-footer {
+                            display: flex;
+    
+                            .c100 {
+                                margin-top: 10px;
+                                &.standard {
+                                    display: none;
+                                }
+                            }
+    
+                            .btn {
                                 display: none;
                             }
-                        }
-
-                        .btn {
-                            display: none;
                         }
                     }
                 }
@@ -224,6 +269,10 @@ body {
                 .modal-form-step-1,
                 .modal-form-step-2 {
                     width: inherit;
+                }
+
+                .modal-form-step-6 {
+                    width: 90%;
                 }
             }
         }

@@ -10,6 +10,7 @@
         <div class="modal-form-background" (click)="hideModal()"></div>
         <div class="modal-form-header"></div>
         <form id="form-how-to-use" (click)="openModal()" class="modal-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+            <img src="/assets/img/free-template.png" class="modal-last-step" [ngClass]="{'d-none': !activeStep(step.Six)}" alt="Free Template" />
             <div class="modal-form-body">
                 <div class="modal-wizard-wrapper" [attr.step]="stepWrapper">
                     <div class="modal-form-step-wrapper">
@@ -111,9 +112,20 @@
                             </div>
                         </div>
                     </div>
+    
+                    <div class="modal-form-step-wrapper">
+                        <div class="modal-form-step modal-form-step-6" [ngClass]="{'modal-form-step-enable': activeStep(step.Six)}">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>We're committed to your privacy. HubSpot uses the information you provide to us to contact you about our relevant content, products, and services. You may unsubscribe from these communications at any time. For more information, check out our <a href="https://legal.hubspot.com/privacy-policy">Privacy Policy</a></p>
+                                    <button type="button" class="btn btn-outline-light mt-5"><i class="fas fa-cloud-download-alt"></i>&nbsp;&nbsp;&nbsp;Get Your Free Templates!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="modal-form-footer">
+            <div class="modal-form-footer" [ngClass]="{'d-none': activeStep(step.Six)}">
                 <button type="button" [disabled]="prevDisabled()" (click)="prevStep()" class="btn btn-light btn-sm"><i class="fas fa-chevron-left"></i></button>
                 
                 <div class="c100 p{{percent}} standard green">
@@ -132,7 +144,7 @@
                 </div>
 
                 <button type="button" *ngIf="!downloadBtn()" [disabled]="nextDisabled()" (click)="nextStep()" class="btn btn-light btn-sm"><i class="fas fa-chevron-right"></i></button>
-                <button type="submit" *ngIf="downloadBtn()" class="btn btn-light btn-sm"><i class="fas fa-cloud-download-alt"></i></button>
+                <button type="button" *ngIf="downloadBtn()" (click)="nextStep()" class="btn btn-light btn-sm"><i class="fas fa-check"></i></button>
             </div>
         </form>
     </div>

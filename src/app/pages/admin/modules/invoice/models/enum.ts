@@ -6,4 +6,5 @@ export enum HowToUseStep {
     Three,
     Four,
     Five,
+    Six,
 }

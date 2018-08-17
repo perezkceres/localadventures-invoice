@@ -67,6 +67,12 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
 
     @HostListener("window:scroll", [])
     onWindowScroll() {
+        /** cuando se llega al ultimo paso, no se muestra el progreso flotante */
+        if (this.currentStep == HowToUseStep.Six) {
+            this.renderer.removeClass(document.body, 'how-to-use-modal-short');
+            return;
+        }
+
         const forms = [].slice.call((<HTMLElement>this.el.nativeElement).getElementsByClassName('modal-container'));
         forms.forEach((element: HTMLElement) => {
             var rect = element.getBoundingClientRect();
@@ -74,7 +80,7 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
 
             let bottom = rect.top - window.innerHeight;
             let top = rect.top + element.clientHeight;
-            console.log({'bottom': bottom, 'top': top});
+            // console.log({'bottom': bottom, 'top': top});
 
             // el valor 5 es para un aproximado
             if (bottom <= 5 && top >= 5) { // aparecio por debajo
@@ -97,6 +103,12 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
         this.outModal = true;
 
         this.renderer.removeClass(document.body, 'how-to-use-modal-open');
+
+        /** cuando se llega al ultimo paso, no se muestra el progreso flotante */
+        if (this.currentStep == HowToUseStep.Six) {
+            this.renderer.removeClass(document.body, 'how-to-use-modal-short');
+        }
+
         setTimeout(() => {
             this.outModal = false;
         }, 800);
@@ -167,6 +179,9 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
                 break;
             case HowToUseStep.Four:
                 step = HowToUseStep.Five;
+                break;
+            case HowToUseStep.Five:
+                step = HowToUseStep.Six;
                 break;
         }
 
