@@ -163,13 +163,14 @@
                 top: 15vh;
                 width: 90vw;
                 height: 65vh;
+                min-height: 380px;
                 position: fixed;
 
                 animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
 
                 .modal-form-body {
                     height: auto;
-                    min-height: 255px;
+                    min-height: 235px;
                 }
                 .modal-form-footer {
                     display: flex;
@@ -299,6 +300,12 @@ body {
 @media (max-width: 510px) {
     .wrapper-who-you-are {
         .modal-container {
+            &.modal-form-open {
+                .modal-form {
+                    top: 14vh;
+                    height: 73vh;
+                }
+            }
             &:not(.modal-form-open) {
                 .modal-form-step-0,
                 .modal-form-step-3, {
@@ -324,5 +331,10 @@ body {
                 }
             }
         }
+    }
+
+    .wrapper-who-you-are .modal-container {
+        // height: 320px;
+        height: auto;
     }
 }
