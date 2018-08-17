@@ -152,7 +152,39 @@ export class HowToUseComponent extends EditComponent<HowToUse> implements OnInit
 
     /** deshabilita el btn siguiente */
     public nextDisabled(): boolean {
-        return this.currentStep == HowToUseStep.Five;
+        let inputs = [];
+        let isValid;
+        let hasValue;
+
+        switch(this.currentStep) {
+            case HowToUseStep.Zero:
+                inputs = ['name', 'lastName'];
+                break;
+            case HowToUseStep.One:
+                inputs = ['email'];
+                break;
+            case HowToUseStep.Two:
+                inputs = ['phone'];
+                break;
+            case HowToUseStep.Three:
+                inputs = ['company', 'website'];
+                break;
+            case HowToUseStep.Four:
+                inputs = ['employees'];
+                break;
+            case HowToUseStep.Five:
+                inputs = ['hasServices'];
+                break;
+        }
+
+        inputs.forEach(field => {
+            isValid = isValid == undefined ? !this.isFieldValid(field) : isValid && !this.isFieldValid(field);
+
+            let value = this.form.value[field];
+            hasValue = hasValue == undefined ? (value != null && value != '') : hasValue && (value != null && value != '');
+        });
+
+        return !(isValid && hasValue);
     }
 
     /** habilita el btn descargar */

@@ -35,17 +35,20 @@ export class HowToUseService extends ModelService<HowToUse> {
             switch (key) {
                 case "name":
                 case "lastName":
-                case "phone":
                 case "company":
                 case "employees":
                 case "hasServices":
-                    validations = Validators.required;
+                    validations = [Validators.required];
                     break;
                 case "email":
                     validations = [Validators.required, Validators.email];
                     break;
                 case "website":
-                    validations = Validators.required;
+                    validations = [Validators.required];
+                    break;
+                case "phone":
+                    // https://stackoverflow.com/questions/48996054/angular-5-validators-pattern-regex-for-only-numbers
+                    validations = [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)];
                     break;
             }
 
