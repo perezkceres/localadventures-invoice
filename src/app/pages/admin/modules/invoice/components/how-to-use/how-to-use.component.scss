@@ -28,14 +28,6 @@
             margin: 0 auto;
             border-radius: .2rem;
 
-            // .modal-form-step {
-            //     display: none;
-
-            //     &.modal-form-step-enable {
-            //         display: block;
-            //     }
-            // }
-
             .modal-form-body {
                 display: flex;
                 position: relative;
@@ -183,5 +175,23 @@
         border: none;
         padding: .375rem .75rem;
         border-radius: .25rem;
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { 
+    .wrapper-who-you-are {
+        .modal-container {
+            &:not(.modal-form-open) {
+                .modal-form-step-0,
+                .modal-form-step-3, {
+                    width: auto;
+                }
+                .modal-form-step-1,
+                .modal-form-step-2 {
+                    width: inherit;
+                }
+            }
+        }
     }
 }

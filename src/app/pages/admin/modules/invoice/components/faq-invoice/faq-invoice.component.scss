@@ -15,26 +15,25 @@
         opacity: 0;
     }
     dt {
-        background: #fd8f5f; /** here */
+        background: #d8d8d8; /** here */
 
         .faq-title {
             display: block;
             position: relative;
             cursor: pointer;
             padding: 1rem 1rem 1rem 2rem;
-            color: #fff; /** here */
+            color: #545454; /** here */
 
-            font-size: 2rem;
+            font-size: 1.3rem;
             line-height: 1.3125;
             font-weight: 700;
             margin-bottom: 0;
 
             i {
                 position: relative;
-                bottom: 3px;
                 min-width: 20px;
                 margin-right: auto;
-                font-size: 20px;
+                font-size: 16px;
             }
         }
 
@@ -66,36 +65,19 @@
     font-size: 13px;
 
     p {
-        // max-width: 900px;
         margin: 0 auto;
     }
 }
 
 // Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) { 
-    .faq-list {
-        dt {
-            .faq-title {
-                font-size: 1.5rem;
-
-                i {
-                    bottom: 0;
-                }
-            }
-        }
-    }
-}
+@media (max-width: 991.98px) { }
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) { 
     .faq-list {
         dt {
             .faq-title {
-                font-size: 1.2rem;
-
-                i {
-                    bottom: 0;
-                }
+                font-size: 1.1rem;
             }
         }
     }
